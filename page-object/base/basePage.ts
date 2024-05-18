@@ -1,0 +1,21 @@
+import { Page } from "@playwright/test";
+
+export class BasePage {
+
+    readonly page: Page;
+
+    constructor(page: Page) {
+
+        this.page = page;
+    }
+
+    public async goto(url: string) {
+
+        await this.page.goto(url);
+    }
+
+    public getPage() {
+
+        return this.page;
+    }
+}

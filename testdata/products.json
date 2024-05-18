@@ -1,0 +1,19 @@
+{
+    "products": [
+
+        {
+            "url": "https://magento.softwaretestingboard.com/gwen-drawstring-bike-short.html",
+            "name": "Gwen Drawstring Bike Short",
+            "size": "29",
+            "color": "Orange",
+            "quantity": "6"
+        },
+        {
+            "url": "https://magento.softwaretestingboard.com/breathe-easy-tank.html",
+            "name": "Breathe-Easy Tank",
+            "size": "M",
+            "color": "Yellow",
+            "quantity": "2"
+        }
+    ]
+}

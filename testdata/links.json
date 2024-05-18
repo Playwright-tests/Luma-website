@@ -1,0 +1,155 @@
+{
+    "mainMenu": [
+        {
+            "link": "What's New",
+            "url": "https://magento.softwaretestingboard.com/what-is-new.html"
+        },
+        {
+            "link": "Women",
+            "url": "https://magento.softwaretestingboard.com/women.html"
+        },
+        {
+            "link": "Men",
+            "url": "https://magento.softwaretestingboard.com/men.html"
+        },
+        {
+            "link": "Gear",
+            "url": "https://magento.softwaretestingboard.com/gear.html"
+        },
+        {
+            "link": "Training",
+            "url": "https://magento.softwaretestingboard.com/training.html"
+        },
+        {
+            "link": "Sale",
+            "url": "https://magento.softwaretestingboard.com/sale.html"
+        }
+    ],
+
+    "dropdownList": [
+
+        {
+            "triggerElement": "Women",
+            "links": [
+                {
+                    "link": "Tops",
+                    "url": "https://magento.softwaretestingboard.com/women/tops-women.html"
+                },
+                {
+                    "link": "Bottoms",
+                    "url": "https://magento.softwaretestingboard.com/women/bottoms-women.html"
+                }
+            ]
+        },
+
+        {
+            "triggerElement": "Men",
+            "links": [
+                {
+                    "link": "Tops",
+                    "url": "https://magento.softwaretestingboard.com/men/tops-men.html"
+                },
+                {
+                    "link": "Bottoms",
+                    "url": "https://magento.softwaretestingboard.com/men/bottoms-men.html"
+                }
+            ]
+        },
+        {
+            "triggerElement": "Gear",
+            "links": [
+                {
+                    "link": "Bags",
+                    "url": "https://magento.softwaretestingboard.com/gear/bags.html"
+                },
+                {
+                    "link": "Fitness Equipment",
+                    "url": "https://magento.softwaretestingboard.com/gear/fitness-equipment.html"
+                },
+                {
+                    "link": "Watches",
+                    "url": "https://magento.softwaretestingboard.com/gear/watches.html"
+                }
+                
+            ]
+        }
+    ],
+    "sublistWomen": [
+        {
+            "triggerElement_1": "Women",
+            "triggerElement_2": "Tops",
+            "links": [
+                {
+                    "link": "Jackets",
+                    "url": "https://magento.softwaretestingboard.com/women/tops-women/jackets-women.html"
+                },
+                {
+                    "link": "Hoodies & Sweatshirts",
+                    "url": "https://magento.softwaretestingboard.com/women/tops-women/hoodies-and-sweatshirts-women.html"
+                },
+                {
+                    "link": "Tees",
+                    "url": "https://magento.softwaretestingboard.com/women/tops-women/tees-women.html"
+                },
+                {
+                    "link": "Bras & Tanks",
+                    "url": "https://magento.softwaretestingboard.com/women/tops-women/tanks-women.html"
+                }
+
+            ]
+        },
+        {
+            "triggerElement_1": "Women",
+            "triggerElement_2": "Bottoms",
+            "links": [
+                {
+                    "link": "Pants",
+                    "url": "https://magento.softwaretestingboard.com/women/bottoms-women/pants-women.html"
+                },
+                {
+                    "link": "Shorts",
+                    "url": "https://magento.softwaretestingboard.com/women/bottoms-women/shorts-women.html"
+                }
+            ]
+        }
+    ],
+    "sublistMen": [
+        {
+            "triggerElement_1": "Men",
+            "triggerElement_2": "Tops",
+            "links": [
+                {
+                    "link": "Jackets",
+                    "url": "https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html"
+                },
+                {
+                    "link": "Hoodies & Sweatshirts",
+                    "url": "https://magento.softwaretestingboard.com/men/tops-men/hoodies-and-sweatshirts-men.html"
+                },
+                {
+                    "link": "Tees",
+                    "url": "https://magento.softwaretestingboard.com/men/tops-men/tees-men.html"
+                },
+                {
+                    "link": "Tanks",
+                    "url": "https://magento.softwaretestingboard.com/men/tops-men/tanks-men.html"
+                }
+
+            ]
+        },
+        {
+            "triggerElement_1": "Men",
+            "triggerElement_2": "Bottoms",
+            "links": [
+                {
+                    "link": "Pants",
+                    "url": "https://magento.softwaretestingboard.com/men/bottoms-men/pants-men.html"
+                },
+                {
+                    "link": "Shorts",
+                    "url": "https://magento.softwaretestingboard.com/men/bottoms-men/shorts-men.html"
+                }
+            ]
+        }
+    ]
+}
