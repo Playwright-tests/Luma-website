@@ -1,7 +1,7 @@
 import { test, expect } from "../../fixtures/productPage";
 import { expect as NHD_expect } from "../../expect/selectorIsVisible";
 import { getProducts } from "../../testdata-providers/productsTesdataProvider";
-import { clickAddToCartButtonStep, setColorStep, setQuantityeStep, setSizeStep, step } from "./steps";
+import { clickAddToCartButtonStep, step } from "./steps";
 import { ProductPage } from "../../page-object/product-page/productPage";
 
 const product = getProducts()[0];
