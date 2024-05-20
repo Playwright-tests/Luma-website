@@ -1,8 +1,7 @@
 import { test, expect } from "../../fixtures/productPage";
 import { expect as NHD_expect } from "../../expect/selectorIsVisible";
-import { getProducts } from "../../testdata-providers/productsTesdataProvider";
+import { getProducts } from "../../testdata-providers/testDataProviders";
 import { clickAddToCartButtonStep, step } from "./steps";
-import { ProductPage } from "../../page-object/product-page/productPage";
 
 const product = getProducts()[0];
 test.use({URL: product.url});
@@ -51,7 +50,7 @@ test.describe('Adding a product to the shopping cart',async () => {
         expect(await productPage.getRequiredColorMessageLocator().textContent()).toEqual('This is a required field.');
     })
 
-    test.only('Attempting to adding a product to the cart when a quantity is not selected',async ({productPage}) => {
+    test('Attempting to adding a product to the cart when a quantity is not selected',async ({productPage}) => {
         
         await step('size', product.size, async () => { await productPage.setSize(product.size) });
         await step('color', product.color, async () => { await productPage.setColor(product.color) });
