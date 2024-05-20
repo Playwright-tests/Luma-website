@@ -10,6 +10,6 @@ export class MainMenu extends BasePage {
 
     public async clickLink(linkName: string) {
 
-        await this.getPage().getByRole('link', {name: linkName, exact: true}).click();
+        await this.getPage().getByRole('menuitem', {name: linkName}).click();
     }
 }
