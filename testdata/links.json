@@ -70,7 +70,15 @@
                     "link": "Watches",
                     "url": "https://magento.softwaretestingboard.com/gear/watches.html"
                 }
-                
+            ]
+        },
+        {
+            "triggerElement": " Training",
+            "links": [
+                {
+                    "link": "Video Download",
+                    "url": "https://magento.softwaretestingboard.com/training/training-video.html"
+                }
             ]
         }
     ],
