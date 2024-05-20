@@ -5,19 +5,19 @@
             "url": "https://magento.softwaretestingboard.com/what-is-new.html"
         },
         {
-            "link": "Women",
+            "link": " Women",
             "url": "https://magento.softwaretestingboard.com/women.html"
         },
         {
-            "link": "Men",
+            "link": " Men",
             "url": "https://magento.softwaretestingboard.com/men.html"
         },
         {
-            "link": "Gear",
+            "link": " Gear",
             "url": "https://magento.softwaretestingboard.com/gear.html"
         },
         {
-            "link": "Training",
+            "link": " Training",
             "url": "https://magento.softwaretestingboard.com/training.html"
         },
         {
@@ -29,34 +29,34 @@
     "dropdownList": [
 
         {
-            "triggerElement": "Women",
+            "triggerElement": " Women",
             "links": [
                 {
-                    "link": "Tops",
+                    "link": " Tops",
                     "url": "https://magento.softwaretestingboard.com/women/tops-women.html"
                 },
                 {
-                    "link": "Bottoms",
+                    "link": " Bottoms",
                     "url": "https://magento.softwaretestingboard.com/women/bottoms-women.html"
                 }
             ]
         },
 
         {
-            "triggerElement": "Men",
+            "triggerElement": " Men",
             "links": [
                 {
-                    "link": "Tops",
+                    "link": " Tops",
                     "url": "https://magento.softwaretestingboard.com/men/tops-men.html"
                 },
                 {
-                    "link": "Bottoms",
+                    "link": " Bottoms",
                     "url": "https://magento.softwaretestingboard.com/men/bottoms-men.html"
                 }
             ]
         },
         {
-            "triggerElement": "Gear",
+            "triggerElement": " Gear",
             "links": [
                 {
                     "link": "Bags",
@@ -76,8 +76,8 @@
     ],
     "sublistWomen": [
         {
-            "triggerElement_1": "Women",
-            "triggerElement_2": "Tops",
+            "triggerElement_1": " Women",
+            "triggerElement_2": " Tops",
             "links": [
                 {
                     "link": "Jackets",
@@ -99,8 +99,8 @@
             ]
         },
         {
-            "triggerElement_1": "Women",
-            "triggerElement_2": "Bottoms",
+            "triggerElement_1": " Women",
+            "triggerElement_2": " Bottoms",
             "links": [
                 {
                     "link": "Pants",
@@ -115,8 +115,8 @@
     ],
     "sublistMen": [
         {
-            "triggerElement_1": "Men",
-            "triggerElement_2": "Tops",
+            "triggerElement_1": " Men",
+            "triggerElement_2": " Tops",
             "links": [
                 {
                     "link": "Jackets",
@@ -138,8 +138,8 @@
             ]
         },
         {
-            "triggerElement_1": "Men",
-            "triggerElement_2": "Bottoms",
+            "triggerElement_1": " Men",
+            "triggerElement_2": " Bottoms",
             "links": [
                 {
                     "link": "Pants",
