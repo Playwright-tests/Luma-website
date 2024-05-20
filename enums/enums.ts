@@ -15,8 +15,10 @@ export enum PropertyNames {
 
 export enum ListCategory {
 
-    WOMEN = 0,
-    MEN = 1
+    WOMEN,
+    MEN,
+    GEAR,
+    TRAINING
 }
 
 export enum SublistCategory {
