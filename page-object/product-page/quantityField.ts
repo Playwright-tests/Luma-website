@@ -20,6 +20,11 @@ export class QuantityField extends BasePage {
         await this.field.fill(qty);
     }
 
+    async getQuantity() {
+
+        return await this.field.inputValue();
+    }
+
     getErrorMessageSelector() {
 
         return this.errorMessageSelector;
