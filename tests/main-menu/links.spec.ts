@@ -1,6 +1,6 @@
 import { LinkTestdataProviders } from "../../testdata-providers/linkTestdataProviders";
 import { PropertyNames } from "../../enums/enums";
-import { test, expect } from "../../fixtures/mainMenu";
+import { test, expect } from "../../fixtures/menu";
 
 LinkTestdataProviders.load('links.json');
 const links = LinkTestdataProviders.get(PropertyNames.MAIN_MENU);
@@ -9,14 +9,14 @@ test.describe('Main menu links',async () => {
     
     for(const link of links) {
 
-        test(`Clicking the "${link.link}"`,async ({mainMenu}) => {
+        test(`Clicking the "${link.link}"`,async ({menu}) => {
             
             await test.step('Click the "' + link.link + '"',async () => {
                 
-                await mainMenu.clickLink(link.link);
+                await menu.click(link.link);
             })
 
-            await expect(mainMenu.getPage()).toHaveURL(link.url);
+            await expect(menu.getPage()).toHaveURL(link.url);
         })
     }
 
