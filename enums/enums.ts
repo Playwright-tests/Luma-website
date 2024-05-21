@@ -10,7 +10,8 @@ export enum PropertyNames {
 
     MAIN_MENU = 'mainMenu',
     DROPDOWN_LIST = 'dropdownList',
-    SUBLIST = 'sublist'
+    SUBLIST = 'sublist',
+    PHRASES = 'phrases'
 }
 
 export enum ListCategory {
@@ -31,4 +32,9 @@ export enum MenuItem {
 
     TOPS = 0,
     BOTTOMS = 1
+}
+
+export enum FileNames {
+
+    PHRASES = 'phrases.json'
 }
