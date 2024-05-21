@@ -12,7 +12,7 @@ export function getProducts() {
 export function getStringArray(fileName: string, property: string) {
 
     let stringArray: string[];
-    const source: string = LocalTestdataLoader.fetch('quantities.json');
+    const source: string = LocalTestdataLoader.fetch(fileName);
     stringArray = source[property];
     return stringArray;
 }
