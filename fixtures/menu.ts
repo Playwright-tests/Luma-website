@@ -4,7 +4,6 @@ import { URLs } from "../enums/enums"
 
 export { expect } from "@playwright/test";
 
-
 export const test = base.extend<{menu: Menu}>({
 
     menu:async ({page}, use) => {

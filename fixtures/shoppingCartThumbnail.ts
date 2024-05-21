@@ -7,7 +7,6 @@ import { ProductPage } from "../page-object/product-page/productPage";
 
 export { expect } from "@playwright/test";
 
-
 export const test = base.extend<{unexpanded: ShoppingCartThumbnail} & {expanded: ShoppingCartThumbnail} & {URL: string}>({
 
     URL: ['noURL', {option: true}],
@@ -21,8 +20,6 @@ export const test = base.extend<{unexpanded: ShoppingCartThumbnail} & {expanded:
 
     expanded:async ({page, URL}, use) => {
         
-        const product: Product = {size: '29', color: 'Orange', quantity: '5'};
-
         const shoppingCartThumbnail = new ShoppingCartThumbnail(page);
         const header = new Header(page);
         const productPage = new ProductPage(page);

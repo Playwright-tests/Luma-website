@@ -3,7 +3,6 @@ import { ProductPage } from "../page-object/product-page/productPage"
 
 export { expect } from "@playwright/test";
 
-
 export const test = base.extend<{URL: string} & {productPage: ProductPage}>({
 
     URL: ['noURL',{option: true}],
