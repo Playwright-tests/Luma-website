@@ -1,4 +1,5 @@
-import { Product } from "../models/models";
+import { credentials } from "../config/credentials";
+import { Credentials, Product } from "../models/models";
 import { LocalTestdataLoader } from "../testdata-loaders/localTestdataLoader";
 
 export function getProducts() {
@@ -15,4 +16,15 @@ export function getStringArray(fileName: string, property: string) {
     const source: string = LocalTestdataLoader.fetch(fileName);
     stringArray = source[property];
     return stringArray;
+}
+
+export function getCorrectCredentials() {
+
+    let myCredentials: Credentials = {
+
+        email: credentials.email!,
+        password: credentials.password!
+    };
+
+    return myCredentials;
 }
