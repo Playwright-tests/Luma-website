@@ -3,7 +3,8 @@ export enum URLs {
     HOME_PAGE = "https://magento.softwaretestingboard.com/",
     GWEN_DRAWSTRING = 'https://magento.softwaretestingboard.com/gwen-drawstring-bike-short.html',
     SHOPPING_CART_PAGE = 'https://magento.softwaretestingboard.com/checkout/cart/',
-    CHECKOUT_PAGE = 'https://magento.softwaretestingboard.com/checkout/'
+    CHECKOUT_PAGE = 'https://magento.softwaretestingboard.com/checkout/',
+    SEARCH_RESULTS_PAGE = 'https://magento.softwaretestingboard.com/catalogsearch/result/?q='
 }
 
 export enum PropertyNames {
@@ -11,7 +12,8 @@ export enum PropertyNames {
     MAIN_MENU = 'mainMenu',
     DROPDOWN_LIST = 'dropdownList',
     SUBLIST = 'sublist',
-    PHRASES = 'phrases'
+    CORRECT_PHRASES = 'correctPhrases',
+    INCORRECT_PHRASES = 'incorrectPhrases'
 }
 
 export enum ListCategory {
