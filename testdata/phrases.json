@@ -1,5 +1,9 @@
 {
-    "phrases": [
+    "correctPhrases": [
         "t-shirt"
+    ],
+
+    "incorrectPhrases": [
+        "$%^&%*(#"
     ]
 }
