@@ -3,7 +3,8 @@ import { BasePage } from "../base/basePage";
 
 export class Header extends BasePage {
 
-    readonly shoppingCartButton: Locator;
+    private readonly loggedInSelector: string = 'span.logged-in';
+    private readonly shoppingCartButton: Locator;
 
     constructor(page: Page) {
 
@@ -12,8 +13,13 @@ export class Header extends BasePage {
         this.shoppingCartButton = page.getByRole('link', {name: ' My Cart'});
     }
 
-    async clickShoppingCartButton() {
+    public async clickShoppingCartButton(): Promise<void> {
 
         await this.shoppingCartButton.click();
+    }
+
+    public getLoggedInSelector(): string {
+
+        return this.loggedInSelector;
     }
 }
