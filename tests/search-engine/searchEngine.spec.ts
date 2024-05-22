@@ -1,12 +1,22 @@
-import { FileNames, PropertyNames } from "../../enums/enums";
+import { FileNames, PropertyNames, URLs } from "../../enums/enums";
 import { test, expect } from "../../fixtures/searchEngine";
 import { expect as NHD_expect } from "../../expect/selectorIsVisible";
 import { getStringArray } from "../../testdata-providers/testDataProviders";
+import { SearchResultsPage } from "../../page-object/search-results-page/searchResultsPage";
+import { steps } from "./commonSteps";
 
-const phrases = getStringArray(FileNames.PHRASES, PropertyNames.PHRASES);
+const correctPhrases = getStringArray(FileNames.PHRASES, PropertyNames.CORRECT_PHRASES);
+const incorrectPhrases = getStringArray(FileNames.PHRASES, PropertyNames.INCORRECT_PHRASES);
 
 test.describe('Search engine',async () => {
     
+    let searchResultsPage: SearchResultsPage;
+
+    test.beforeEach(async ({searchEngine}) => {
+        
+        searchResultsPage = new SearchResultsPage(searchEngine.getPage());
+    })
+
     test('Input text verification',async ({searchEngine}) => {
         
         const phrase = 'Phrase!!!'
@@ -19,7 +29,7 @@ test.describe('Search engine',async () => {
         expect(await searchEngine.getInput()).toEqual(phrase);
     })
 
-    for(const phrase of phrases) {
+    for(const phrase of correctPhrases) {
 
         test(`Autocomplete with "${phrase}" phrase`,async ({searchEngine}) => {
             
@@ -38,6 +48,35 @@ test.describe('Search engine',async () => {
                 const itemName = await item.textContent() ?? '';
                 expect.soft(itemName.toLowerCase()).toContain(phrase.toLowerCase());
             }
+        })
+    }
+
+    for(const phrase of correctPhrases) {
+
+        test(`Searching with correct phrase: "${phrase}"`,async ({searchEngine}) => {
+            
+            await steps(searchEngine, phrase);
+            await searchEngine.getPage().waitForURL(URLs.SEARCH_RESULTS_PAGE + phrase, {timeout: 2000});
+            searchResultsPage.findProducts();
+
+            expect((await searchResultsPage.getItems()).length).toBeGreaterThan(0);
+        })
+    }
+
+    for(const phrase of incorrectPhrases) {
+
+        test(`Searching with incorrect phrase: "${phrase}"`,async ({searchEngine}) => {
+            
+            const expectedMessage = 'Your search returned no results.'
+            await steps(searchEngine, phrase);
+            
+            await NHD_expect(searchResultsPage.getPage()).selectorIsVisible(searchResultsPage.getMessageSelector());
+
+            searchResultsPage.findProducts();
+            const actualMessage = await searchResultsPage.getMessageLocator().textContent() ?? '';
+
+            expect((await searchResultsPage.getItems()).length).toEqual(0);
+            expect(actualMessage.trim()).toEqual(expectedMessage);
         })
     }
 })
