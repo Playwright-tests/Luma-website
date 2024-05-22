@@ -4,7 +4,8 @@ export enum URLs {
     GWEN_DRAWSTRING = 'https://magento.softwaretestingboard.com/gwen-drawstring-bike-short.html',
     SHOPPING_CART_PAGE = 'https://magento.softwaretestingboard.com/checkout/cart/',
     CHECKOUT_PAGE = 'https://magento.softwaretestingboard.com/checkout/',
-    SEARCH_RESULTS_PAGE = 'https://magento.softwaretestingboard.com/catalogsearch/result/?q='
+    SEARCH_RESULTS_PAGE = 'https://magento.softwaretestingboard.com/catalogsearch/result/?q=',
+    LOGIN_PAGE = 'https://magento.softwaretestingboard.com/customer/account/login/'
 }
 
 export enum PropertyNames {
