@@ -25,3 +25,9 @@ export type Product = {
     color: string,
     quantity: string
 }
+
+export type Credentials = {
+
+    email: string;
+    password: string
+}
