@@ -76,12 +76,12 @@ test.describe('Login',async () => {
         await incorrectCredentialsActions(loginForm, correctCredentials.email, incorrectPassword.password);
     })
 
-    test.only('Unsuccessful login with blank the "Email" field',async ({loginForm}) => {
+    test('Unsuccessful login with blank the "Email" field',async ({loginForm}) => {
         
         await blankFieldActions(loginForm, '', correctCredentials.password, loginForm.emailErrorSelector);
     })
 
-    test.only('Unsuccessful login with blank the "Password" field',async ({loginForm}) => {
+    test('Unsuccessful login with blank the "Password" field',async ({loginForm}) => {
         
         await blankFieldActions(loginForm, correctCredentials.email, '', loginForm.passwordErrorSelector);
     })
