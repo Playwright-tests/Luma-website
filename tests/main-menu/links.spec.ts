@@ -9,7 +9,7 @@ test.describe('Main menu links',async () => {
     
     for(const link of links) {
 
-        test(`Clicking the "${link.link}"`,async ({menu}) => {
+        test(`Clicking the "${link.link}" link`,async ({menu}) => {
             
             await test.step(`Click the "${link.link}"`,async () => {
                 
