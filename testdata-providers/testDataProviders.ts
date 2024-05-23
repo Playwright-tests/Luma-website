@@ -1,4 +1,5 @@
 import { credentials } from "../config/credentials";
+import { FileNames } from "../enums/enums";
 import { Credentials, Product } from "../models/models";
 import { LocalTestdataLoader } from "../testdata-loaders/localTestdataLoader";
 
@@ -28,3 +29,11 @@ export function getCorrectCredentials() {
 
     return myCredentials;
 }
+
+export function getIncorrectCredentials(key: string) {
+
+    let credentials: Credentials[];
+    const source = LocalTestdataLoader.fetch(FileNames.INCORRECT_CREDENTIALS);
+    credentials = source[key];
+    return credentials;
+}   
