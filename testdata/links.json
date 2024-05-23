@@ -25,9 +25,7 @@
             "url": "https://magento.softwaretestingboard.com/sale.html"
         }
     ],
-
     "dropdownList": [
-
         {
             "triggerElement": " Women",
             "links": [
@@ -41,7 +39,6 @@
                 }
             ]
         },
-
         {
             "triggerElement": " Men",
             "links": [
@@ -103,7 +100,6 @@
                     "link": "Bras & Tanks",
                     "url": "https://magento.softwaretestingboard.com/women/tops-women/tanks-women.html"
                 }
-
             ]
         },
         {
@@ -142,7 +138,6 @@
                     "link": "Tanks",
                     "url": "https://magento.softwaretestingboard.com/men/tops-men/tanks-men.html"
                 }
-
             ]
         },
         {
@@ -158,6 +153,32 @@
                     "url": "https://magento.softwaretestingboard.com/men/bottoms-men/shorts-men.html"
                 }
             ]
+        }
+    ],
+    "accountMenu": [
+        {
+            "link": "My Orders",
+            "url": "https://magento.softwaretestingboard.com/sales/order/history/"
+        },
+        {
+            "link": "My Downloadable Products",
+            "url": "https://magento.softwaretestingboard.com/downloadable/customer/products/"
+        },
+        {
+            "link": "Address Book",
+            "url": "https://magento.softwaretestingboard.com/customer/address/new/"
+        },
+        {
+            "link": "Account Information",
+            "url": "https://magento.softwaretestingboard.com/customer/account/edit/"
+        },
+        {
+            "link": "Stored Payment Methods",
+            "url": "https://magento.softwaretestingboard.com/vault/cards/listaction/"
+        },
+        {
+            "link": "My Product Reviews",
+            "url": "https://magento.softwaretestingboard.com/review/customer/"
         }
     ]
 }
