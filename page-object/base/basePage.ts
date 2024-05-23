@@ -2,20 +2,20 @@ import { Page } from "@playwright/test";
 
 export class BasePage {
 
-    readonly page: Page;
+    readonly _page: Page;
 
     constructor(page: Page) {
 
-        this.page = page;
+        this._page = page;
     }
 
-    public async goto(url: string) {
+    public async goto(url: string): Promise<void> {
 
-        await this.page.goto(url);
+        await this._page.goto(url);
     }
 
-    public getPage() {
+    public get page(): Page {
 
-        return this.page;
+        return this._page;
     }
 }
