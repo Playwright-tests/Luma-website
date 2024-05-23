@@ -14,7 +14,9 @@ export enum PropertyNames {
     DROPDOWN_LIST = 'dropdownList',
     SUBLIST = 'sublist',
     CORRECT_PHRASES = 'correctPhrases',
-    INCORRECT_PHRASES = 'incorrectPhrases'
+    INCORRECT_PHRASES = 'incorrectPhrases',
+    INCORRECT_EMAIL = 'incorrectEmail',
+    INCORRECT_PASSWORD = 'incorrectPassword'
 }
 
 export enum ListCategory {
@@ -39,5 +41,6 @@ export enum MenuItem {
 
 export enum FileNames {
 
-    PHRASES = 'phrases.json'
+    PHRASES = 'phrases.json',
+    INCORRECT_CREDENTIALS = 'incorrectCredentials'
 }
