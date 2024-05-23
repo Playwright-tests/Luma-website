@@ -11,7 +11,7 @@ test.describe('Main menu links',async () => {
 
         test(`Clicking the "${link.link}"`,async ({menu}) => {
             
-            await test.step('Click the "' + link.link + '"',async () => {
+            await test.step(`Click the "${link.link}"`,async () => {
                 
                 await menu.click(link.link);
             })
