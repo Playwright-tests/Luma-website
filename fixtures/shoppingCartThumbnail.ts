@@ -29,7 +29,7 @@ export const test = base.extend<{unexpanded: ShoppingCartThumbnail} & {expanded:
         await productPage.clickAddToCartButton();
 
         const selector = '.page.messages';
-        await productPage.getPage().waitForSelector(selector, {state: 'visible', timeout: 5000});
+        await productPage.page.waitForSelector(selector, {state: 'visible', timeout: 5000});
 
         await header.goto(URLs.HOME_PAGE);
         await header.clickShoppingCartButton();
