@@ -22,7 +22,7 @@ test.describe('Login',async () => {
     async function incorrectCredentialsActions(loginForm: LoginForm, email: string, password: string) {
         
         await loginSteps(loginForm, email, password);
-        await NHD_expect(loginForm.getPage()).selectorIsVisible(loginForm.alertSelector);
+        await NHD_expect(loginForm.page).selectorIsVisible(loginForm.alertSelector);
 
         const actualMessage = await loginForm.alertLocator.textContent();
 
@@ -32,8 +32,8 @@ test.describe('Login',async () => {
     async function blankFieldActions(loginForm: LoginForm, email: string, password: string, expectedSelector: string) {
         
         await loginSteps(loginForm, email, password);
-        await NHD_expect(loginForm.getPage()).selectorIsVisible(expectedSelector);
-        expect(await loginForm.getPage().locator(expectedSelector).textContent()).toEqual('This is a required field.');
+        await NHD_expect(loginForm.page).selectorIsVisible(expectedSelector);
+        expect(await loginForm.page.locator(expectedSelector).textContent()).toEqual('This is a required field.');
     }
 
     test('The "Email" field input verification',async ({loginForm}) => {
@@ -60,10 +60,10 @@ test.describe('Login',async () => {
 
     test('Successful login with correct credentials',async ({loginForm}) => {
         
-        const header = new Header(loginForm.getPage());
+        const header = new Header(loginForm.page);
 
         await loginSteps(loginForm, correctCredentials.email, correctCredentials.password);
-        await NHD_expect(header.getPage()).selectorIsVisible(header.getLoggedInSelector());
+        await NHD_expect(header.page).selectorIsVisible(header.getLoggedInSelector());
     })
 
     test('Unsuccessful login with incorrect email',async ({loginForm}) => {

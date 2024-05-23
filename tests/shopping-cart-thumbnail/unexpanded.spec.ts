@@ -7,13 +7,13 @@ test.describe('The shopping cart thumbnail',async () => {
 
     test('Expanding the thumbnail',async ({unexpanded}) => {
         
-        const header = new Header(unexpanded.getPage());
+        const header = new Header(unexpanded.page);
 
         await test.step('Click the shopping cart button',async () => {
             
             await header.clickShoppingCartButton();
         })
 
-        await VEExpect(unexpanded.getPage()).selectorIsVisible(unexpanded.getSelector());
+        await VEExpect(unexpanded.page).selectorIsVisible(unexpanded.getSelector());
     })
 })

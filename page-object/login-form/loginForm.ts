@@ -52,7 +52,7 @@ export class LoginForm extends BasePage {
 
     public get alertLocator(): Locator {
 
-        return this.getPage().locator(this._alertSelector);
+        return this.page.locator(this._alertSelector);
     }
 
     public get emailErrorSelector(): string {

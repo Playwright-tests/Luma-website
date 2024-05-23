@@ -16,7 +16,7 @@ test.describe('Main menu links',async () => {
                 await menu.click(link.link);
             })
 
-            await expect(menu.getPage()).toHaveURL(link.url);
+            await expect(menu.page).toHaveURL(link.url);
         })
     }
 

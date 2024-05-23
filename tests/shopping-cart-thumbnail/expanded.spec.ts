@@ -12,6 +12,6 @@ test.describe('The shopping cart thumbnail links',async () => {
             await expanded.clickCheckoutButton();
         })
 
-        await expect(expanded.getPage()).toHaveURL(URLs.CHECKOUT_PAGE);
+        await expect(expanded.page).toHaveURL(URLs.CHECKOUT_PAGE);
     })
 })

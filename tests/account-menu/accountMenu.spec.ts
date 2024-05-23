@@ -15,7 +15,7 @@ test.describe('The account menu',async () => {
                 await accountMenu.clickLink(link.link);
             })
 
-            await expect(accountMenu.getPage()).toHaveURL(link.url);
+            await expect(accountMenu.page).toHaveURL(link.url);
         })
     }
 })

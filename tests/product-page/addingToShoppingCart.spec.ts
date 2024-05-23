@@ -24,7 +24,7 @@ test.describe('Adding a product to the shopping cart',async () => {
         await step('quantity', product.quantity, async () => { await productPage.getQuantityField().setQuantity(product.quantity) });
         await clickAddToCartButtonStep(productPage);
 
-        await NHD_expect(productPage.getPage()).selectorIsVisible(productPage.getMessageSuccessSelector());
+        await NHD_expect(productPage.page).selectorIsVisible(productPage.getMessageSuccessSelector());
         expect(await productPage.getMessageSuccessLocator().textContent()).toContain('You added ' + product.name + ' to your shopping cart');
     })
 
@@ -35,7 +35,7 @@ test.describe('Adding a product to the shopping cart',async () => {
         await step('quantity', product.quantity, async () => { await productPage.getQuantityField().setQuantity(product.quantity) });
         await clickAddToCartButtonStep(productPage);
 
-        await NHD_expect(productPage.getPage()).selectorIsVisible(productPage.getRequiredSizeMessageSelector());
+        await NHD_expect(productPage.page).selectorIsVisible(productPage.getRequiredSizeMessageSelector());
         expect(await productPage.getRequiredSizeMessageLocator().textContent()).toEqual(expectedSizeOrColoFieldsErrorMessage);
     })
 
@@ -46,7 +46,7 @@ test.describe('Adding a product to the shopping cart',async () => {
         await step('quantity', product.quantity, async () => { await productPage.getQuantityField().setQuantity(product.quantity) });
         await clickAddToCartButtonStep(productPage);
 
-        await NHD_expect(productPage.getPage()).selectorIsVisible(productPage.getRequiredColorMessageSelector());
+        await NHD_expect(productPage.page).selectorIsVisible(productPage.getRequiredColorMessageSelector());
         expect(await productPage.getRequiredColorMessageLocator().textContent()).toEqual('This is a required field.');
     })
 
@@ -57,7 +57,7 @@ test.describe('Adding a product to the shopping cart',async () => {
         await step('quantity', product.quantity, async () => { await productPage.getQuantityField().setQuantity('') });
         await clickAddToCartButtonStep(productPage);
 
-        await NHD_expect(productPage.getPage()).selectorIsVisible(productPage.getQuantityField().getErrorMessageSelector());
+        await NHD_expect(productPage.page).selectorIsVisible(productPage.getQuantityField().getErrorMessageSelector());
         expect(await productPage.getQuantityField().getErrorMessageLocator().textContent()).toEqual(expectedQuanatityErrorMessage);
     })
 })

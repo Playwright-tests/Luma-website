@@ -10,7 +10,7 @@ export async function steps(searchEngine: SearchEngine, phrase: string) {
 
     await test.step('Press the ENTER key',async () => {
         
-        await searchEngine.getPage().keyboard.press('Enter');
+        await searchEngine.page.keyboard.press('Enter');
     })
 
 }

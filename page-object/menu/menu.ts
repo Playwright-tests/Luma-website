@@ -20,12 +20,12 @@ export class Menu extends BasePage {
 
     public async click(linkName: string): Promise<void> {
 
-        await this.getPage().getByRole('menuitem', {name: linkName}).click();
+        await this.page.getByRole('menuitem', {name: linkName}).click();
     }
 
     public async hover(linkName: string): Promise<void> {
 
-        await this.getPage().getByRole('menuitem', {name: linkName}).hover();
+        await this.page.getByRole('menuitem', {name: linkName}).hover();
     }
 
     public getWomenListLocator(): Locator {

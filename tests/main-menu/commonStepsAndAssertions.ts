@@ -12,7 +12,7 @@ export async function checkExpandingAndCollapsing_1(menu: Menu, link: string, li
 
     await test.step('Move the mouse up',async () => {
         
-        await menu.getPage().mouse.move(0, 50);
+        await menu.page.mouse.move(0, 50);
     })
 
     await expect(listLocator).not.toBeVisible();

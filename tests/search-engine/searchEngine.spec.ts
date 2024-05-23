@@ -14,7 +14,7 @@ test.describe('Search engine',async () => {
 
     test.beforeEach(async ({searchEngine}) => {
         
-        searchResultsPage = new SearchResultsPage(searchEngine.getPage());
+        searchResultsPage = new SearchResultsPage(searchEngine.page);
     })
 
     test('Input text verification',async ({searchEngine}) => {
@@ -38,10 +38,10 @@ test.describe('Search engine',async () => {
                 await searchEngine.enterPhrase(phrase);
             })
 
-            await searchEngine.getPage().waitForSelector(searchEngine.getAutocompleteList().getWrapperSelector(), {timeout: 1000});
+            await searchEngine.page.waitForSelector(searchEngine.getAutocompleteList().getWrapperSelector(), {timeout: 1000});
             searchEngine.getAutocompleteList().findItems();
 
-            await NHD_expect(searchEngine.getPage()).selectorIsVisible(searchEngine.getAutocompleteListSelector());
+            await NHD_expect(searchEngine.page).selectorIsVisible(searchEngine.getAutocompleteListSelector());
     
             for(const item of await searchEngine.getAutocompleteList().getItems()) {
 
@@ -56,7 +56,7 @@ test.describe('Search engine',async () => {
         test(`Searching with correct phrase: "${phrase}"`,async ({searchEngine}) => {
             
             await steps(searchEngine, phrase);
-            await searchEngine.getPage().waitForURL(URLs.SEARCH_RESULTS_PAGE + phrase, {timeout: 2000});
+            await searchEngine.page.waitForURL(URLs.SEARCH_RESULTS_PAGE + phrase, {timeout: 2000});
             searchResultsPage.findProducts();
 
             expect((await searchResultsPage.getItems()).length).toBeGreaterThan(0);
@@ -70,7 +70,7 @@ test.describe('Search engine',async () => {
             const expectedMessage = 'Your search returned no results.'
             await steps(searchEngine, phrase);
             
-            await NHD_expect(searchResultsPage.getPage()).selectorIsVisible(searchResultsPage.getMessageSelector());
+            await NHD_expect(searchResultsPage.page).selectorIsVisible(searchResultsPage.getMessageSelector());
 
             searchResultsPage.findProducts();
             const actualMessage = await searchResultsPage.getMessageLocator().textContent() ?? '';

@@ -19,7 +19,7 @@ test.describe('Product page quantity field',async () => {
     async function positiveActions(productPage: ProductPage, quantity: string) {
         
         await generalActions(productPage, quantity);
-        await NHD_expect(productPage.getPage()).not.selectorIsVisible(productPage.getQuantityField().getErrorMessageSelector());
+        await NHD_expect(productPage.page).not.selectorIsVisible(productPage.getQuantityField().getErrorMessageSelector());
     }
 
     test('Verification of the quantity field text input',async ({productPage}) => {
@@ -38,7 +38,7 @@ test.describe('Product page quantity field',async () => {
 
         await generalActions(productPage, quantity);
 
-        await NHD_expect(productPage.getPage()).selectorIsVisible(productPage.getQuantityField().getErrorMessageSelector());
+        await NHD_expect(productPage.page).selectorIsVisible(productPage.getQuantityField().getErrorMessageSelector());
         expect(await productPage.getQuantityField().getErrorMessageLocator().textContent()).toEqual(expectedErrorMessage);
     })
 
