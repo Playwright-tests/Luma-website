@@ -1,7 +1,15 @@
 import { credentials } from "../config/credentials";
 import { FileNames } from "../enums/enums";
-import { Credentials, Product } from "../models/models";
+import { Credentials, LinkData, Product } from "../models/models";
 import { LocalTestdataLoader } from "../testdata-loaders/localTestdataLoader";
+
+export function getLinks(key: string) {
+
+    let links: LinkData[];
+    const source = LocalTestdataLoader.fetch(FileNames.LINKS);
+    links = source[key];
+    return links;
+}
 
 export function getProducts() {
 
