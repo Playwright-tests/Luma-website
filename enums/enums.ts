@@ -16,7 +16,8 @@ export enum PropertyNames {
     CORRECT_PHRASES = 'correctPhrases',
     INCORRECT_PHRASES = 'incorrectPhrases',
     INCORRECT_EMAIL = 'incorrectEmail',
-    INCORRECT_PASSWORD = 'incorrectPassword'
+    INCORRECT_PASSWORD = 'incorrectPassword',
+    ACCOUNT_MENU = 'accountMenu'
 }
 
 export enum ListCategory {
@@ -41,6 +42,7 @@ export enum MenuItem {
 
 export enum FileNames {
 
+    LINKS = 'links.json',
     PHRASES = 'phrases.json',
     INCORRECT_CREDENTIALS = 'incorrectCredentials'
 }
