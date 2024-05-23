@@ -7,6 +7,10 @@ export class LoginForm extends BasePage {
     private readonly passwordField: Locator;
     private readonly signInButton: Locator;
 
+    private readonly _alertSelector: string = '.message-error.error.message';
+    private readonly _emailErrorSelector: string = '#email-error';
+    private readonly _passwordErrorSelector: string = '#pass-error';
+
     constructor(page: Page) {
 
         super(page);
@@ -39,5 +43,25 @@ export class LoginForm extends BasePage {
     public async clickSignInButton(): Promise<void> {
 
         return await this.signInButton.click();
+    }
+
+    public get alertSelector(): string {
+
+        return this._alertSelector;
+    }
+
+    public get alertLocator(): Locator {
+
+        return this.getPage().locator(this._alertSelector);
+    }
+
+    public get emailErrorSelector(): string {
+
+        return this._emailErrorSelector;
+    }
+
+    public get passwordErrorSelector(): string {
+
+        return this._passwordErrorSelector;
     }
 }
