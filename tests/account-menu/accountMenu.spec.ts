@@ -8,7 +8,7 @@ test.describe('The account menu',async () => {
     
     for(const link of links) {
 
-        test.only(`Clicking the "${link.link}" link`,async ({accountMenu}) => {
+        test(`Clicking the "${link.link}" link`,async ({accountMenu}) => {
             
             await test.step(`Click the "${link.link}" link`,async () => {
                 
