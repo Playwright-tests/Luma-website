@@ -11,7 +11,7 @@ test.describe('Product page quantity field',async () => {
     
     async function generalActions(productPage: ProductPage, quantity: string) {
         
-        await step('quantity', quantity, async () => { await productPage.getQuantityField().setQuantity(quantity) });
+        await step('quantity', quantity, async () => { await productPage.quantityField.setQuantity(quantity) });
         await clickAddToCartButtonStep(productPage);
 
     }
@@ -19,7 +19,7 @@ test.describe('Product page quantity field',async () => {
     async function positiveActions(productPage: ProductPage, quantity: string) {
         
         await generalActions(productPage, quantity);
-        await NHD_expect(productPage.page).not.selectorIsVisible(productPage.getQuantityField().getErrorMessageSelector());
+        await NHD_expect(productPage.page).not.selectorIsVisible(productPage.quantityField.getErrorMessageSelector());
     }
 
     test('Verification of the quantity field text input',async ({productPage}) => {
@@ -28,7 +28,7 @@ test.describe('Product page quantity field',async () => {
 
         await generalActions(productPage, expectedQuantity);
 
-        expect(await productPage.getQuantityField().getQuantity()).toEqual(expectedQuantity);
+        expect(await productPage.quantityField.getQuantity()).toEqual(expectedQuantity);
     })
 
     test('Quantity- shorter than minimum (min - 1)',async ({productPage}) => {
@@ -38,8 +38,8 @@ test.describe('Product page quantity field',async () => {
 
         await generalActions(productPage, quantity);
 
-        await NHD_expect(productPage.page).selectorIsVisible(productPage.getQuantityField().getErrorMessageSelector());
-        expect(await productPage.getQuantityField().getErrorMessageLocator().textContent()).toEqual(expectedErrorMessage);
+        await NHD_expect(productPage.page).selectorIsVisible(productPage.quantityField.getErrorMessageSelector());
+        expect(await productPage.quantityField.getErrorMessageLocator().textContent()).toEqual(expectedErrorMessage);
     })
 
     test('Quantity- minimum',async ({productPage}) => {
