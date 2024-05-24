@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { BasePage } from "./basePage";
+import { BasePage } from "../base/basePage";
 
 export class DynamicForm extends BasePage {
 
@@ -12,12 +12,12 @@ export class DynamicForm extends BasePage {
 
     protected async fillField(label: string, data: string): Promise<void> {
 
-        await this.getPage().getByLabel(label, {exact: true}).fill(data);
+        await this.page.getByLabel(label, {exact: true}).fill(data);
     }
 
     protected async getFieldInput(label: string): Promise<string | null> {
 
-        return await this.getPage().getByLabel(label, {exact: true}).inputValue();
+        return await this.page.getByLabel(label, {exact: true}).inputValue();
     }
 
     public get mainSelector(): string {
