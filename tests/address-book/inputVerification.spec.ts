@@ -26,7 +26,7 @@ test.describe('The address book input verification',async () => {
         expect(await addressBook.getLastNameFieldInput()).toEqual(lastName);
     })
 
-    test.only('The "Company" field input verification',async ({addressBook}) => {
+    test('The "Company" field input verification',async ({addressBook}) => {
         
         const company: string = 'Company';
 

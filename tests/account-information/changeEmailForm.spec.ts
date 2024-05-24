@@ -3,7 +3,7 @@ import { inputVerificationStep } from "./commonSteps";
 
 test.describe('The "Change Email" form',async () => {
     
-    test.only('The "Email" field input verification',async ({dynamicForm}) => {
+    test('The "Email" field input verification',async ({dynamicForm}) => {
         
         const email = 'myEmail@domain.com';
 

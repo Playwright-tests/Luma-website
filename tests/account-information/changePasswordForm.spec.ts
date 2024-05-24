@@ -17,7 +17,7 @@ test.describe('The "Change Password" form',async () => {
         expect(await dynamicForm.changePasswordForm.getCurrentPasswordFieldInput()).toEqual(currentPassword);
     })
 
-    test.only('The "New Password" field input verification',async ({dynamicForm}) => {
+    test('The "New Password" field input verification',async ({dynamicForm}) => {
         
         const newPassword = 'newPassword';
 
