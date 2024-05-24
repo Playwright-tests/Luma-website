@@ -6,89 +6,84 @@ export class ProductPage extends BasePage {
 
     readonly productName: Locator;
     readonly price: Locator;
-    readonly quantityField: QuantityField;
+    readonly _quantityField: QuantityField;
     readonly addToCartButton: Locator;
-    readonly messageSuccessSelector: string;
-    readonly messageSuccessLocator: Locator;
-    readonly requiredSizeMessageSelector: string;
-    readonly requiredSizeMessageLocator: Locator;
-    readonly requiredColorMessageSelector: string;
-    readonly requiredColorMessageLocator: Locator
+    readonly _messageSuccessSelector: string;
+    readonly _requiredSizeMessageSelector: string;
+    readonly _requiredColorMessageSelector: string;
     
     constructor(page: Page) {
 
         super(page);
 
-        this.messageSuccessSelector = '.message-success.success.message';
         this.productName = page.locator('.page-title');
         this.price = page.locator('.product-info-price').locator('.price');
         this.addToCartButton = page.getByRole('button', {name: 'Add to Cart'});
-        this.messageSuccessLocator = page.locator(this.messageSuccessSelector);
-        this.requiredSizeMessageSelector = '[id="super_attribute\\[143\\]-error"]';
-        this.requiredSizeMessageLocator = page.locator(this.requiredSizeMessageSelector);
-        this.requiredColorMessageSelector = '[id="super_attribute\\[93\\]-error"]';
-        this.requiredColorMessageLocator = page.locator(this.requiredColorMessageSelector);
+        
+        this._messageSuccessSelector = '.message-success.success.message';
+        this._requiredSizeMessageSelector = '[id="super_attribute\\[143\\]-error"]';
+        this._requiredColorMessageSelector = '[id="super_attribute\\[93\\]-error"]';
 
-        this.quantityField = new QuantityField(page);
+        this._quantityField = new QuantityField(page);
     }
 
-    async getProductName() {
+    public async getProductName(): Promise<string | null> {
 
         return await this.productName.textContent();
     }
 
-    async getPrice() {
+    public async getPrice(): Promise<string | null> {
 
         return await this.price.textContent();
     }
 
-    async setSize(size: string) {
+    public async setSize(size: string): Promise<void> {
 
         await this.page.getByLabel(size).click();
     }
 
-    async setColor(color: string) {
+    public async setColor(color: string): Promise<void> {
 
         await this.page.getByLabel(color).click();
     }
 
-    getQuantityField() {
+    public get quantityField(): QuantityField {
 
-        return this.quantityField;
+        return this._quantityField;
     }
 
-    async clickAddToCartButton() {
+    public async clickAddToCartButton(): Promise<void> {
 
         await this.addToCartButton.click();
     }
 
-    getMessageSuccessSelector() {
+    public get messageSuccessSelector(): string {
 
-        return this.messageSuccessSelector;
+        return this._messageSuccessSelector;
     }
 
-    getMessageSuccessLocator() {
+    public get requiredSizeMessageSelector(): string {
 
-        return this.messageSuccessLocator;
+        return this._requiredSizeMessageSelector;
     }
 
-    getRequiredSizeMessageSelector() {
+    public get requiredColorMessageSelector(): string {
 
-        return this.requiredSizeMessageSelector;
+        return this._requiredColorMessageSelector;
     }
 
-    getRequiredColorMessageSelector() {
+    public get messageSuccessLocator(): Locator {
 
-        return this.requiredColorMessageSelector;
+        return this.page.locator(this._messageSuccessSelector);
     }
 
-    getRequiredSizeMessageLocator() {
+    public get requiredSizeMessageLocator(): Locator {
 
-        return this.requiredSizeMessageLocator;
+        return this.page.locator(this._requiredSizeMessageSelector);
     }
 
-    getRequiredColorMessageLocator() {
+    public get requiredColorMessageLocator(): Locator {
 
-        return this.requiredColorMessageLocator;
+        return this.page.locator(this._requiredColorMessageSelector);
     }
 }
