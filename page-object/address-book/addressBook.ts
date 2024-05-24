@@ -37,6 +37,11 @@ export class AddressBook extends BasePage {
         await this.page.getByLabel(label).selectOption(value);
     }
 
+    private async getFieldInput(selector: string): Promise<string | null> {
+
+        return await this.page.locator(selector).inputValue();
+    }
+
     public async enterFirstName(firstName: string): Promise<void> {
 
         await this.fillField(this.firstNameSelector, firstName);
@@ -99,47 +104,47 @@ export class AddressBook extends BasePage {
 
     public async getFirstNameFieldInput(): Promise<string | null> {
 
-        return await this.page.locator(this.firstNameSelector).inputValue();
+        return await this.getFieldInput(this.firstNameSelector);
     }
 
     public async getLastNameFieldInput(): Promise<string | null> {
 
-        return await this.page.locator(this.lastNameSelector).inputValue();
+        return await this.getFieldInput(this.lastNameSelector);
     }
 
     public async getCompanyFieldInput(): Promise<string | null> {
 
-        return await this.page.locator(this.companySelector).inputValue();
+        return await this.getFieldInput(this.companySelector);
     }
 
     public async getPhoneFieldInput(): Promise<string | null> {
 
-        return await this.page.locator(this.phoneSelector).inputValue();
+        return await this.getFieldInput(this.phoneSelector);
     }
 
     public async getAddressFieldInput_1(): Promise<string | null> {
 
-        return await this.page.locator(this.addressSelector_1).inputValue();
+        return await this.getFieldInput(this.addressSelector_1);
     }
 
     public async getAddressFieldInput_2(): Promise<string | null> {
 
-        return await this.page.locator(this.addressSelector_2).inputValue();
+        return await this.getFieldInput(this.addressSelector_2);
     }
 
     public async getAddressFieldInput_3(): Promise<string | null> {
 
-        return await this.page.locator(this.addressSelector_3).inputValue();
+        return await this.getFieldInput(this.addressSelector_3);
     }
 
     public async getCityFieldInput(): Promise<string | null> {
 
-        return await this.page.locator(this.citySelector).inputValue();
+        return await this.getFieldInput(this.citySelector);
     }
 
     public async getPostcodeFieldInput(): Promise<string | null> {
 
-        return await this.page.locator(this.postcodeSelector).inputValue();
+        return await this.getFieldInput(this.postcodeSelector);
     }
 
     public get firstNameErrorSelector(): string {
