@@ -44,12 +44,12 @@ export class ProductPage extends BasePage {
 
     async setSize(size: string) {
 
-        await this.getPage().getByLabel(size).click();
+        await this.page.getByLabel(size).click();
     }
 
     async setColor(color: string) {
 
-        await this.getPage().getByLabel(color).click();
+        await this.page.getByLabel(color).click();
     }
 
     getQuantityField() {
