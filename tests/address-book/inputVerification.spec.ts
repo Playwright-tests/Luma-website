@@ -4,7 +4,7 @@ import { inputVerificationStep } from "./commonSteps";
 
 test.describe('The address book input verification',async () => {
     
-    test.only('The "First Name" field input verification',async ({addressBook}) => {
+    test('The "First Name" field input verification',async ({addressBook}) => {
         
         const firstName: string = 'John';
 
@@ -15,7 +15,7 @@ test.describe('The address book input verification',async () => {
         expect(await addressBook.getFirstNameFieldInput()).toEqual(firstName);
     })
 
-    test.only('The "Last Name" field input verification',async ({addressBook}) => {
+    test('The "Last Name" field input verification',async ({addressBook}) => {
         
         const lastName: string = 'Doe';
 
@@ -37,7 +37,7 @@ test.describe('The address book input verification',async () => {
         expect(await addressBook.getCompanyFieldInput()).toEqual(company);
     })
 
-    test.only('The "Phone Number" field input verification',async ({addressBook}) => {
+    test('The "Phone Number" field input verification',async ({addressBook}) => {
         
         const phone: string = '111222333';
 
@@ -48,7 +48,7 @@ test.describe('The address book input verification',async () => {
         expect(await addressBook.getPhoneFieldInput()).toEqual(phone);
     })
 
-    test.only('The "Street Address" line 1 field input verification',async ({addressBook}) => {
+    test('The "Street Address" line 1 field input verification',async ({addressBook}) => {
         
         const address: string = 'Address';
 
@@ -59,7 +59,7 @@ test.describe('The address book input verification',async () => {
         expect(await addressBook.getAddressFieldInput_1()).toEqual(address);
     })
 
-    test.only('The "Street Address" line 2 field input verification',async ({addressBook}) => {
+    test('The "Street Address" line 2 field input verification',async ({addressBook}) => {
         
         const address: string = 'Address';
 
@@ -70,7 +70,7 @@ test.describe('The address book input verification',async () => {
         expect(await addressBook.getAddressFieldInput_2()).toEqual(address);
     })
 
-    test.only('The "Street Address" line 3 field input verification',async ({addressBook}) => {
+    test('The "Street Address" line 3 field input verification',async ({addressBook}) => {
         
         const address: string = 'Address';
 
@@ -81,7 +81,7 @@ test.describe('The address book input verification',async () => {
         expect(await addressBook.getAddressFieldInput_3()).toEqual(address);
     })
 
-    test.only('The "City" field input verification',async ({addressBook}) => {
+    test('The "City" field input verification',async ({addressBook}) => {
         
         const city: string = 'Helsinki';
 
@@ -92,7 +92,7 @@ test.describe('The address book input verification',async () => {
         expect(await addressBook.getCityFieldInput()).toEqual(city);
     })
 
-    test.only('The "ZIP/ Postal Code" field input verification',async ({addressBook}) => {
+    test('The "ZIP/ Postal Code" field input verification',async ({addressBook}) => {
         
         const postcode: string = '11222';
 
