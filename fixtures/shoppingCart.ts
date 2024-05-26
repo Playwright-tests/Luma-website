@@ -3,25 +3,23 @@ import { Product } from "../models/models";
 import { ProductPage } from "../page-object/product-page/productPage";
 import { ShoppingCart } from "../page-object/shopping-cart/shoppingCart";
 import { URLs } from "../enums/enums";
+import { shoppingCartAction } from "../support/shoppingCartAction";
 
 export { expect } from "@playwright/test";
 
-export const test = base.extend<{product: Product} & {shoppingCart: ShoppingCart}>({
+export const test = base.extend<{products: Product[]} & {shoppingCart: ShoppingCart}>({
 
-    product: [{url: '', name: '', size: '', color: '', quantity: ''}, {option: true}],
+    products: [[], {option: true}],
 
-    shoppingCart: async ({product, page}, use) => {
+    shoppingCart: async ({products, page}, use) => {
         
         const productPage = new ProductPage(page);
         const shoppingCart = new ShoppingCart(page);
 
-        await productPage.goto(product.url);
-        await productPage.setSize(product.size);
-        await productPage.setColor(product.color);
-        await productPage.quantityField.setQuantity(product.quantity);
-        await productPage.clickAddToCartButton();
+        await shoppingCartAction(page, products);
         await shoppingCart.goto(URLs.SHOPPING_CART_PAGE);
         await shoppingCart.page.waitForURL(URLs.SHOPPING_CART_PAGE);
+        await shoppingCart.table.findProducts();
         await use(shoppingCart);
     }
 })
