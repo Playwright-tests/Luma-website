@@ -7,7 +7,8 @@ export enum URLs {
     SEARCH_RESULTS_PAGE = 'https://magento.softwaretestingboard.com/catalogsearch/result/?q=',
     LOGIN_PAGE = 'https://magento.softwaretestingboard.com/customer/account/login/',
     ADDRESS_BOOK = 'https://magento.softwaretestingboard.com/customer/address/new/',
-    ACCOUNT_INFORMATION = 'https://magento.softwaretestingboard.com/customer/account/edit/'
+    ACCOUNT_INFORMATION = 'https://magento.softwaretestingboard.com/customer/account/edit/',
+    CHECKOUT = 'https://magento.softwaretestingboard.com/checkout/'
 }
 
 export enum PropertyNames {
