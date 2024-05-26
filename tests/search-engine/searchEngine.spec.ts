@@ -38,12 +38,12 @@ test.describe('Search engine',async () => {
                 await searchEngine.enterPhrase(phrase);
             })
 
-            await searchEngine.page.waitForSelector(searchEngine.getAutocompleteList().getWrapperSelector(), {timeout: 1000});
+            await searchEngine.page.waitForSelector(searchEngine.getAutocompleteList().wrapperSelector, {timeout: 1000});
             searchEngine.getAutocompleteList().findItems();
 
             await NHD_expect(searchEngine.page).selectorIsVisible(searchEngine.getAutocompleteListSelector());
     
-            for(const item of await searchEngine.getAutocompleteList().getItems()) {
+            for(const item of await searchEngine.getAutocompleteList().items) {
 
                 const itemName = await item.textContent() ?? '';
                 expect.soft(itemName.toLowerCase()).toContain(phrase.toLowerCase());
