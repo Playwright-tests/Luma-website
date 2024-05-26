@@ -2,24 +2,25 @@ import { test, expect } from "../../fixtures/shoppingCart";
 import { getProducts } from "../../testdata-providers/testDataProviders";
 
 const products = getProducts();
-
-test.use({product: products[0]});
+test.use({products: products});
 
 test.describe('Shopping cart state',async () => {
     
-    test.only('Checking the shopping cart state',async ({shoppingCart}) => {
+    test('Checking the shopping cart state',async ({shoppingCart}) => {
         
-        await shoppingCart.table.findProducts();
         expect(shoppingCart.table.getRowsCount()).toBeGreaterThan(0);
 
         for(let i = 0; i < shoppingCart.table.getRowsCount(); i++) {
 
-            console.log(`NAME: ${await shoppingCart.table.getName(i)}`);
-            console.log(`COLOR: ${await shoppingCart.table.getColor(i)}`);
-            console.log(`SIZE: ${await shoppingCart.table.getSize(i)}`);
-            console.log(`PRICE: ${await shoppingCart.table.getPrice(i)}`);
-            console.log(`QUANTITY: ${await shoppingCart.table.getQuantityFieldInput(i)}`);
-            console.log(`SUBTOTAL: ${await shoppingCart.table.getSubtotal(i)}`);
+            const name = await shoppingCart.table.getName(i);
+            const color = await shoppingCart.table.getColor(i);
+            const size = await shoppingCart.table.getSize(i);
+            const quantity = await shoppingCart.table.getQuantityField(i).getFieldInput();
+
+            expect.soft(name?.trim()).toEqual(products[i].name);
+            expect.soft(color?.trim()).toEqual(products[i].color);
+            expect.soft(size?.trim()).toEqual(products[i].size);
+            expect.soft(quantity?.trim()).toEqual(products[i].quantity);
         }
     })
 })
