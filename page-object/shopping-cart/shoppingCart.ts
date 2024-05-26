@@ -8,6 +8,7 @@ export class ShoppingCart extends BasePage {
 
     private readonly updateShoppingCartButton: Locator;
     private readonly proceedToCheckoutButton: Locator;
+    private readonly _loadingSelector: string = 'div.loading-mask';
 
     constructor(page: Page) {
 
@@ -31,5 +32,10 @@ export class ShoppingCart extends BasePage {
     public async clickProceedToCheckoutButton(): Promise<void> {
 
         await this.proceedToCheckoutButton.click();
+    }
+
+    public get loadingSelector(): string {
+
+        return this._loadingSelector;
     }
 }
