@@ -3,29 +3,29 @@ import { BasePage } from "../base/basePage";
 
 export class AutocompleteList extends BasePage {
 
-    private readonly wrapperSelector: string = '#search_autocomplete';
+    private readonly _wrapperSelector: string = '#search_autocomplete';
     private readonly wrapperLocator: Locator; 
-    private items: Promise<Locator[]>;
+    private _items: Promise<Locator[]>;
 
     constructor(page: Page) {
 
         super(page);
 
-        this.wrapperLocator = page.locator(this.wrapperSelector);
+        this.wrapperLocator = page.locator(this._wrapperSelector);
     }
 
-    public getWrapperSelector(): string {
+    public get wrapperSelector(): string {
 
-        return this.wrapperSelector;
+        return this._wrapperSelector;
     }
 
     public findItems(): void {
 
-        this.items = this.wrapperLocator.locator('li[role="option"]').all();
+        this._items = this.wrapperLocator.locator('li[role="option"]').all();
     }
 
-    public getItems(): Promise<Locator[]> {
+    public get items(): Promise<Locator[]> {
 
-        return this.items;
+        return this._items;
     }
 }
