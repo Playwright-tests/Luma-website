@@ -1,6 +1,5 @@
 import { test, expect } from "../../fixtures/addressBook";
-import { AddressBook } from "../../page-object/address-book/addressBook";
-import { inputVerificationStep } from "./commonSteps";
+import { inputVerificationStep } from "../../support/commonSteps";
 
 test.describe('The address book input verification',async () => {
     
@@ -10,7 +9,7 @@ test.describe('The address book input verification',async () => {
 
         await inputVerificationStep(async () => {    
             await addressBook.enterFirstName(firstName);
-        }, firstName)
+        }, 'First Name', firstName)
 
         expect(await addressBook.getFirstNameFieldInput()).toEqual(firstName);
     })
@@ -21,7 +20,7 @@ test.describe('The address book input verification',async () => {
 
         await inputVerificationStep(async () => {    
             await addressBook.enterLastname(lastName);
-        }, lastName)
+        }, 'Last Name', lastName)
 
         expect(await addressBook.getLastNameFieldInput()).toEqual(lastName);
     })
@@ -32,7 +31,7 @@ test.describe('The address book input verification',async () => {
 
         await inputVerificationStep(async () => {    
             await addressBook.enterCompany(company);
-        }, company)
+        }, 'Company', company)
 
         expect(await addressBook.getCompanyFieldInput()).toEqual(company);
     })
@@ -43,7 +42,7 @@ test.describe('The address book input verification',async () => {
 
         await inputVerificationStep(async () => {    
             await addressBook.enterPhone(phone);
-        }, phone)
+        }, 'Phone Number', phone)
 
         expect(await addressBook.getPhoneFieldInput()).toEqual(phone);
     })
@@ -54,7 +53,7 @@ test.describe('The address book input verification',async () => {
 
         await inputVerificationStep(async () => {    
             await addressBook.enterAddress_1(address);
-        }, address)
+        }, 'Street Address line 2', address)
 
         expect(await addressBook.getAddressFieldInput_1()).toEqual(address);
     })
@@ -65,7 +64,7 @@ test.describe('The address book input verification',async () => {
 
         await inputVerificationStep(async () => {    
             await addressBook.enterAddress_2(address);
-        }, address)
+        }, 'Street Address line 2', address)
 
         expect(await addressBook.getAddressFieldInput_2()).toEqual(address);
     })
@@ -76,7 +75,7 @@ test.describe('The address book input verification',async () => {
 
         await inputVerificationStep(async () => {    
             await addressBook.enterAddress_3(address);
-        }, address)
+        }, 'Street Address line 3', address)
 
         expect(await addressBook.getAddressFieldInput_3()).toEqual(address);
     })
@@ -87,7 +86,7 @@ test.describe('The address book input verification',async () => {
 
         await inputVerificationStep(async () => {    
             await addressBook.enterCity(city);
-        }, city)
+        }, 'City', city)
 
         expect(await addressBook.getCityFieldInput()).toEqual(city);
     })
@@ -98,7 +97,7 @@ test.describe('The address book input verification',async () => {
 
         await inputVerificationStep(async () => {    
             await addressBook.enterPostcode(postcode);
-        }, postcode)
+        }, 'ZIP/ Postal Code', postcode)
 
         expect(await addressBook.getPostcodeFieldInput()).toEqual(postcode);
     })

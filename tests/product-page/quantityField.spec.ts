@@ -3,6 +3,7 @@ import { expect as NHD_expect } from "../../expect/selectorIsVisible";
 import { ProductPage } from "../../page-object/product-page/productPage";
 import { getProducts } from "../../testdata-providers/testDataProviders";
 import { clickAddToCartButtonStep, step } from "./steps";
+import { inputVerificationStep } from "../../support/commonSteps";
 
 const product = getProducts()[1];
 test.use({URL: product.url});
@@ -13,7 +14,6 @@ test.describe('Product page quantity field',async () => {
         
         await step('quantity', quantity, async () => { await productPage.quantityField.setQuantity(quantity) });
         await clickAddToCartButtonStep(productPage);
-
     }
 
     async function positiveActions(productPage: ProductPage, quantity: string) {
@@ -26,7 +26,9 @@ test.describe('Product page quantity field',async () => {
         
         const expectedQuantity = "7";
 
-        await generalActions(productPage, expectedQuantity);
+        await inputVerificationStep(async () => {
+            await productPage.quantityField.setQuantity(expectedQuantity);
+        }, 'product page', expectedQuantity);
 
         expect(await productPage.quantityField.getQuantity()).toEqual(expectedQuantity);
     })

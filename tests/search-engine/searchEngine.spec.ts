@@ -4,6 +4,7 @@ import { expect as NHD_expect } from "../../expect/selectorIsVisible";
 import { getStringArray } from "../../testdata-providers/testDataProviders";
 import { SearchResultsPage } from "../../page-object/search-results-page/searchResultsPage";
 import { steps } from "./commonSteps";
+import { inputVerificationStep } from "../../support/commonSteps";
 
 const correctPhrases = getStringArray(FileNames.PHRASES, PropertyNames.CORRECT_PHRASES);
 const incorrectPhrases = getStringArray(FileNames.PHRASES, PropertyNames.INCORRECT_PHRASES);
@@ -21,11 +22,10 @@ test.describe('Search engine',async () => {
         
         const phrase = 'Phrase!!!'
 
-        await test.step(`Enter the "${phrase}" phrase`,async () => {
-            
+        await inputVerificationStep(async () => {
             await searchEngine.enterPhrase(phrase);
-        })
-
+        }, 'search engine', phrase);
+        
         expect(await searchEngine.getInput()).toEqual(phrase);
     })
 

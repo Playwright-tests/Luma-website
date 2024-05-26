@@ -1,5 +1,6 @@
 import { test, expect } from "../../fixtures/shoppingCart";
 import { ShoppingCart } from "../../page-object/shopping-cart/shoppingCart";
+import { inputVerificationStep } from "../../support/commonSteps";
 import { getProducts } from "../../testdata-providers/testDataProviders";
 import { updatingSteps } from "./commonSteps";
 
@@ -34,7 +35,9 @@ test.describe('The shopping cart quantity field',async () => {
         
         const expectedQuantity = "7";
 
-        await shoppingCart.table.getQuantityField(index).setQuantity(expectedQuantity);
+        await inputVerificationStep(async () => {
+            await shoppingCart.table.getQuantityField(index).setQuantity(expectedQuantity);
+        }, 'quantity field', expectedQuantity);
 
         expect(await shoppingCart.table.getQuantityField(index).getFieldInput()).toEqual(expectedQuantity);
     })

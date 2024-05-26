@@ -2,9 +2,10 @@ import { test, expect } from "../../fixtures/login";
 import { expect as NHD_expect } from "../../expect/selectorIsVisible";
 import { Header } from "../../page-object/header/header";
 import { getCorrectCredentials, getIncorrectCredentials } from "../../testdata-providers/testDataProviders";
-import { inputVerificationStep, loginSteps } from "./commonSteps";
+import { loginSteps } from "./commonSteps";
 import { PropertyNames } from "../../enums/enums";
 import { LoginForm } from "../../page-object/login-form/loginForm";
+import { inputVerificationStep } from "../../support/commonSteps";
 
 const correctCredentials = getCorrectCredentials();
 const incorrectEmail = getIncorrectCredentials(PropertyNames.INCORRECT_EMAIL)[0];
@@ -42,7 +43,7 @@ test.describe('Login',async () => {
 
         await inputVerificationStep(async () => {    
             await loginForm.enterEmail(email);
-        }, email)
+        }, 'Email', email)
 
         expect(await loginForm.getEmailFieldInput()).toEqual(email);
     })
@@ -53,7 +54,7 @@ test.describe('Login',async () => {
 
         await inputVerificationStep(async () => {
             await loginForm.enterPassword(password);
-        }, password);
+        }, 'Password', password);
 
         expect(await loginForm.getPasswordFieldInput()).toEqual(password);
     })
