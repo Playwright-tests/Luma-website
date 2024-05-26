@@ -3,19 +3,19 @@ import { BasePage } from "../base/basePage";
 
 export class Menu extends BasePage {
 
-    private readonly womenListLocator: Locator;
-    private readonly menListLocator: Locator;
-    private readonly gearListLocator: Locator;
-    private readonly trainingListLocator: Locator;
+    private readonly _womenListLocator: Locator;
+    private readonly _menListLocator: Locator;
+    private readonly _gearListLocator: Locator;
+    private readonly _trainingListLocator: Locator;
 
     constructor(page: Page) {
 
         super(page);
 
-        this.womenListLocator = page.getByText('TopsJacketsHoodies & SweatshirtsTeesBras & TanksBottomsPantsShorts');
-        this.menListLocator = page.getByText('TopsJacketsHoodies & SweatshirtsTeesTanksBottomsPantsShorts');
-        this.gearListLocator = page.getByText('BagsFitness EquipmentWatches');
-        this.trainingListLocator = page.locator('ul').filter({hasText: /^Video Download$/});
+        this._womenListLocator = page.getByText('TopsJacketsHoodies & SweatshirtsTeesBras & TanksBottomsPantsShorts');
+        this._menListLocator = page.getByText('TopsJacketsHoodies & SweatshirtsTeesTanksBottomsPantsShorts');
+        this._gearListLocator = page.getByText('BagsFitness EquipmentWatches');
+        this._trainingListLocator = page.locator('ul').filter({hasText: /^Video Download$/});
     }
 
     public async click(linkName: string): Promise<void> {
@@ -28,23 +28,23 @@ export class Menu extends BasePage {
         await this.page.getByRole('menuitem', {name: linkName}).hover();
     }
 
-    public getWomenListLocator(): Locator {
+    public get womenListLocator(): Locator {
 
-        return this.womenListLocator;
+        return this._womenListLocator;
     }
 
-    public getMenListLocator(): Locator {
+    public get menListLocator(): Locator {
 
-        return this.menListLocator;
+        return this._menListLocator;
     }
 
-    public getGearListLocator(): Locator {
+    public get gearListLocator(): Locator {
 
-        return this.gearListLocator;
+        return this._gearListLocator;
     }
 
-    public getTrainingListLocator() {
+    public get trainingListLocator() {
 
-        return this.trainingListLocator;
+        return this._trainingListLocator;
     }
 }
