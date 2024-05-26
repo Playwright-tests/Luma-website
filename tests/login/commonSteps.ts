@@ -1,14 +1,5 @@
 import { test, expect } from "@playwright/test";
 import { LoginForm } from "../../page-object/login-form/loginForm";
-import { Credentials } from "../../models/models";
-
-export async function inputVerificationStep(func: any, data: string) {
-    
-    await test.step(`Enter the "${data}"`,async () => {
-        
-        await func();
-    })
-}
 
 export async function loginSteps(loginForm: LoginForm, email: string, password: string) {
     
