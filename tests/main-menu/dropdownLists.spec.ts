@@ -13,7 +13,7 @@ test.describe('"Women" dropdown lists',async () => {
     
     test('Expanding and collapsing the "Women" dropdown list',async ({menu}) => {
         
-        await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.WOMEN].triggerElement, menu.getWomenListLocator());
+        await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.WOMEN].triggerElement, menu.womenListLocator);
     })
 
     for(const link of dropdownLists[ListCategory.WOMEN].links) {
@@ -48,7 +48,7 @@ test.describe('"Men" dropdown list',async () => {
     
     test('Expanding and collapsing the "Men" dropdown list',async ({menu}) => {
         
-        await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.MEN].triggerElement, menu.getMenListLocator());
+        await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.MEN].triggerElement, menu.menListLocator);
     })
 
     for(const link of dropdownLists[ListCategory.MEN].links) {
@@ -83,7 +83,7 @@ test.describe('"Gear" dropdown list',async () => {
     
     test('Expanding and collapsing the "Gear" dropdown list',async ({menu}) => {
         
-        await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.GEAR].triggerElement, menu.getGearListLocator());
+        await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.GEAR].triggerElement, menu.gearListLocator);
     })
 
     for(const link of dropdownLists[ListCategory.GEAR].links) {
@@ -100,7 +100,7 @@ test.describe('"Training" dropdown list',async () => {
     
     test('Expanding and collapsing the "Training" dropdown list',async ({menu}) => {
         
-        await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.TRAINING].triggerElement, menu.getTrainingListLocator());
+        await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.TRAINING].triggerElement, menu.trainingListLocator);
     })
 
     for(const link of dropdownLists[ListCategory.TRAINING].links) {
