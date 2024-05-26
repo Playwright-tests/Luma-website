@@ -1,24 +1,27 @@
 import { Locator, Page } from "@playwright/test";
 import { BasePage } from "../base/basePage";
+import { QuantityField } from "./quantityField";
 
 export class Table extends BasePage {
 
     private readonly tableLocator: Locator;
     private items: Locator[];
 
-    private readonly tableSelector: string = '#shopping-cart-table';
+    private readonly _tableSelector: string = '#shopping-cart-table';
     private readonly itemSelector: string = 'tbody.cart.item';
     private readonly nameSelector: string = 'strong.product-item-name';
     private readonly sizeColorSelector: string = 'dl.item-options dd';
     private readonly priceSelector: string = 'span.price';
-    private readonly quantitySelector: string = 'input.input-text.qty';
     private readonly subtotalSelector: string = 'span.cart-price';
+
+    private quantityField: QuantityField;
 
     constructor(page: Page) {
 
         super(page);
 
-        this.tableLocator = page.locator(this.tableSelector);
+        this.tableLocator = page.locator(this._tableSelector);
+        this.quantityField = new QuantityField(page);
     }
 
     public async findProducts(): Promise<void> {
@@ -53,16 +56,22 @@ export class Table extends BasePage {
 
     public async getSubtotal(index: number): Promise<string | null> {
 
-        return await this.items[index].locator(this.subtotalSelector).first().textContent();
+        return await this.items[index].locator(this.subtotalSelector).nth(1).textContent();
     }
 
-    public async setQuantity(index: string, quantity: string): Promise<void> {
+    public getQuantityField(index: number): QuantityField {
 
-        await this.items[index].locator(this.quantitySelector).fill(quantity);
+        this.quantityField.setField(this.items[index]);
+        return this.quantityField;
     }
 
-    public async getQuantityFieldInput(index: number): Promise<string | null> {
+    public async clickRemoveButton(index: number): Promise<void> {
 
-        return await this.items[index].locator(this.quantitySelector).inputValue();
+        return await this.items[index].getByRole('link', {name: ' Remove item'}).click();
+    }
+
+    public get tableSelector(): string {
+
+        return this._tableSelector;
     }
 }
