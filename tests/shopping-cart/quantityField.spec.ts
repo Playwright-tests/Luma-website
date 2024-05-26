@@ -1,5 +1,4 @@
 import { test, expect } from "../../fixtures/shoppingCart";
-import { expect as NHD_expect } from "../../expect/selectorIsVisible";
 import { ShoppingCart } from "../../page-object/shopping-cart/shoppingCart";
 import { getProducts } from "../../testdata-providers/testDataProviders";
 import { updatingSteps } from "./commonSteps";
