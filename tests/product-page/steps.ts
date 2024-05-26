@@ -1,5 +1,4 @@
 import { test } from "@playwright/test";
-import { Product } from "../../models/models";
 import { ProductPage } from "../../page-object/product-page/productPage";
 
 export async function step(dataName: string, data: string, func: any) {
