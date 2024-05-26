@@ -39,7 +39,7 @@ export class ProductPage extends BasePage {
 
     public async setSize(size: string): Promise<void> {
 
-        await this.page.getByLabel(size).click();
+        await this.page.getByLabel(size, {exact: true}).click();
     }
 
     public async setColor(color: string): Promise<void> {
