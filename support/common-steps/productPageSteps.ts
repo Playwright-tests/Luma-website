@@ -1,7 +1,7 @@
 import { test } from "@playwright/test";
 import { ProductPage } from "../../page-object/product-page/productPage";
 
-export async function step(dataName: string, data: string, func: any) {
+export async function settingAttributeStep(dataName: string, data: string, func: any) {
     
     await test.step(`Set ${dataName}: ${data}`,async () => {
         

@@ -1,7 +1,7 @@
 import { test } from "@playwright/test";
 import { SearchEngine } from "../../page-object/search-engine/searchEngine";
 
-export async function steps(searchEngine: SearchEngine, phrase: string) {
+export async function searchProductSteps(searchEngine: SearchEngine, phrase: string) {
     
     await test.step(`Enter the "${phrase}" phrase`,async () => {
         
