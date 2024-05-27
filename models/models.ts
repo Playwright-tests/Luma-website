@@ -31,3 +31,31 @@ export type Credentials = {
     email: string;
     password: string
 }
+
+export type ShippingAddress = {
+
+    email: string,
+    firstName: string,
+    lastName: string,
+    company: string,
+    address_1: string,
+    address_2: string,
+    address_3: string,
+    city: string,
+    state: string,
+    postcode: string,
+    country: string,
+    phone: string
+}
+
+export type ShippingAddressIncorrect = {
+
+    firstname: string,
+    lastName: string,
+    iaddress_1: string,
+    address_2: string,
+    address_3: string,
+    city: string,
+    postcode: string,
+    phone: string
+}
