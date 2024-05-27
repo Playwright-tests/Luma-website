@@ -11,6 +11,7 @@ export async function shoppingCartAction(page: Page, product: Product) {
     await productPage.setColor(product.color);
     await productPage.quantityField.setQuantity(product.quantity);
     await productPage.clickAddToCartButton();
+    await page.waitForSelector(productPage.messageSuccessSelector, {state: 'visible'});
 }
 
 export async function shoppingCartActions(page: Page, products: Product[]) {
