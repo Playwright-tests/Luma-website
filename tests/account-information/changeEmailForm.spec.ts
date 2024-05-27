@@ -1,5 +1,5 @@
 import { test, expect } from "../../fixtures/accountInformation";
-import { inputVerificationStep } from "./commonSteps";
+import { inputVerificationStep } from "../../support/commonSteps";
 
 test.describe('The "Change Email" form',async () => {
     
@@ -9,7 +9,7 @@ test.describe('The "Change Email" form',async () => {
 
         await inputVerificationStep(async () => {
             await dynamicForm.changeEmailForm.enterEmail(email);
-        }, email, "Email");
+        }, "Email", email);
 
         expect(await dynamicForm.changeEmailForm.getEmailFieldInput()).toEqual(email);
     })
@@ -20,7 +20,7 @@ test.describe('The "Change Email" form',async () => {
 
         await inputVerificationStep(async () => {
             await dynamicForm.changeEmailForm.enterPassword(password);
-        }, password, "Current Password");
+        }, "Current Password", password);
 
         expect(await dynamicForm.changeEmailForm.getPasswordFieldInput()).toEqual(password);
     })

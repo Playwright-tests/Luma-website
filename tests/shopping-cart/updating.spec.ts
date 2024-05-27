@@ -1,8 +1,7 @@
 import { test, expect } from "../../fixtures/shoppingCart";
-import { expect as NHD_expect } from "../../expect/selectorIsVisible";
+import { updatingSteps } from "../../support/common-steps/shoppingCartSteps";
 import { getSubtotal } from "../../support/subtotalComputing";
 import { getProducts } from "../../testdata-providers/testDataProviders";
-import { updatingSteps } from "./commonSteps";
 
 const products = getProducts();
 const quantities: string[] = ['2', '4', '3', '5'];

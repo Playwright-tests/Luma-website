@@ -2,7 +2,7 @@ import { test, expect } from "../../fixtures/productPage";
 import { expect as NHD_expect } from "../../expect/selectorIsVisible";
 import { ProductPage } from "../../page-object/product-page/productPage";
 import { getProducts } from "../../testdata-providers/testDataProviders";
-import { clickAddToCartButtonStep, step } from "./steps";
+import { clickAddToCartButtonStep, settingAttributeStep } from "../../support/common-steps/productPageSteps";
 import { inputVerificationStep } from "../../support/commonSteps";
 
 const product = getProducts()[1];
@@ -12,7 +12,7 @@ test.describe('Product page quantity field',async () => {
     
     async function generalActions(productPage: ProductPage, quantity: string) {
         
-        await step('quantity', quantity, async () => { await productPage.quantityField.setQuantity(quantity) });
+        await settingAttributeStep('quantity', quantity, async () => { await productPage.quantityField.setQuantity(quantity) });
         await clickAddToCartButtonStep(productPage);
     }
 

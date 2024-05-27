@@ -1,5 +1,5 @@
 import { test, expect } from "../../fixtures/accountInformation";
-import { inputVerificationStep } from "./commonSteps";
+import { inputVerificationStep } from "../../support/commonSteps";
 
 test.use({checkbox: 'Change Password'});
 
@@ -12,7 +12,7 @@ test.describe('The "Change Password" form',async () => {
         await inputVerificationStep(async () => {
             
             await dynamicForm.changePasswordForm.enterCurrentPassword(currentPassword);
-        }, currentPassword, 'Current Password');
+        }, 'Current password', currentPassword);
 
         expect(await dynamicForm.changePasswordForm.getCurrentPasswordFieldInput()).toEqual(currentPassword);
     })
@@ -23,7 +23,7 @@ test.describe('The "Change Password" form',async () => {
 
         await inputVerificationStep(async () => {
             await dynamicForm.changePasswordForm.enterNewPassword(newPassword);
-        }, newPassword, 'New Password');
+        }, 'New Password', newPassword);
 
         expect(await dynamicForm.changePasswordForm.getNewPasswordFieldInput()).toEqual(newPassword);
     })

@@ -3,8 +3,8 @@ import { test, expect } from "../../fixtures/searchEngine";
 import { expect as NHD_expect } from "../../expect/selectorIsVisible";
 import { getStringArray } from "../../testdata-providers/testDataProviders";
 import { SearchResultsPage } from "../../page-object/search-results-page/searchResultsPage";
-import { steps } from "./commonSteps";
 import { inputVerificationStep } from "../../support/commonSteps";
+import { searchProductSteps } from "../../support/common-steps/searchEngineSteps";
 
 const correctPhrases = getStringArray(FileNames.PHRASES, PropertyNames.CORRECT_PHRASES);
 const incorrectPhrases = getStringArray(FileNames.PHRASES, PropertyNames.INCORRECT_PHRASES);
@@ -55,7 +55,7 @@ test.describe('Search engine',async () => {
 
         test(`Searching with correct phrase: "${phrase}"`,async ({searchEngine}) => {
             
-            await steps(searchEngine, phrase);
+            await searchProductSteps(searchEngine, phrase);
             await searchEngine.page.waitForURL(URLs.SEARCH_RESULTS_PAGE + phrase, {timeout: 2000});
             searchResultsPage.findProducts();
 
@@ -68,7 +68,7 @@ test.describe('Search engine',async () => {
         test(`Searching with incorrect phrase: "${phrase}"`,async ({searchEngine}) => {
             
             const expectedMessage = 'Your search returned no results.'
-            await steps(searchEngine, phrase);
+            await searchProductSteps(searchEngine, phrase);
             
             await NHD_expect(searchResultsPage.page).selectorIsVisible(searchResultsPage.getMessageSelector());
 

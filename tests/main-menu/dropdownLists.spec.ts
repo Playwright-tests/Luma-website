@@ -1,9 +1,8 @@
 import { expect, test } from "../../fixtures/menu"; 
-import { expect as NHD_expect } from "../../expect/selectorIsVisible";
-import { dropdownListSteps, sublistSteps } from "./commonSteps";
 import { DropdownListTestdataProviders, SublistTestdataProviders } from "../../testdata-providers/linkTestdataProviders";
 import { ListCategory, MenuItem, SublistCategory } from "../../enums/enums";
-import { checkExpandingAndCollapsing_1 } from "./commonStepsAndAssertions";
+import { dropdownListSteps, sublistSteps } from "../../support/common-steps/mainMenuSteps";
+import { checkExpandingAndCollapsing_1 } from "../../support/common-steps/mainMenuStepsAndAssertions";
 
 const dropdownLists = DropdownListTestdataProviders.get();
 const womenSublists = SublistTestdataProviders.get(SublistCategory.WOMEN);

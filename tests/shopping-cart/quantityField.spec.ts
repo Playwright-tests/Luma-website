@@ -1,8 +1,8 @@
 import { test, expect } from "../../fixtures/shoppingCart";
 import { ShoppingCart } from "../../page-object/shopping-cart/shoppingCart";
+import { updatingSteps } from "../../support/common-steps/shoppingCartSteps";
 import { inputVerificationStep } from "../../support/commonSteps";
 import { getProducts } from "../../testdata-providers/testDataProviders";
-import { updatingSteps } from "./commonSteps";
 
 const products = getProducts();
 test.use({products: products});

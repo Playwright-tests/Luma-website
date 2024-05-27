@@ -2,10 +2,10 @@ import { test, expect } from "../../fixtures/login";
 import { expect as NHD_expect } from "../../expect/selectorIsVisible";
 import { Header } from "../../page-object/header/header";
 import { getCorrectCredentials, getIncorrectCredentials } from "../../testdata-providers/testDataProviders";
-import { loginSteps } from "./commonSteps";
 import { PropertyNames } from "../../enums/enums";
 import { LoginForm } from "../../page-object/login-form/loginForm";
 import { inputVerificationStep } from "../../support/commonSteps";
+import { loginSteps } from "../../support/common-steps/loginSteps";
 
 const correctCredentials = getCorrectCredentials();
 const incorrectEmail = getIncorrectCredentials(PropertyNames.INCORRECT_EMAIL)[0];

@@ -1,7 +1,7 @@
 import { test, expect } from "../../fixtures/productPage";
 import { expect as NHD_expect } from "../../expect/selectorIsVisible";
 import { getProducts } from "../../testdata-providers/testDataProviders";
-import { clickAddToCartButtonStep, step } from "./steps";
+import { clickAddToCartButtonStep, settingAttributeStep } from "../../support/common-steps/productPageSteps";
 
 const product = getProducts()[0];
 test.use({URL: product.url});
@@ -19,9 +19,9 @@ test.describe('Adding a product to the shopping cart',async () => {
     
     test('Adding a product to the cart selected all product attributes',async ({productPage}) => {
     
-        await step('size', product.size, async () => { await productPage.setSize(product.size) });
-        await step('color', product.color, async () => { await productPage.setColor(product.color) });
-        await step('quantity', product.quantity, async () => { await productPage.quantityField.setQuantity(product.quantity) });
+        await settingAttributeStep('size', product.size, async () => { await productPage.setSize(product.size) });
+        await settingAttributeStep('color', product.color, async () => { await productPage.setColor(product.color) });
+        await settingAttributeStep('quantity', product.quantity, async () => { await productPage.quantityField.setQuantity(product.quantity) });
         await clickAddToCartButtonStep(productPage);
 
         await NHD_expect(productPage.page).selectorIsVisible(productPage.messageSuccessSelector);
@@ -31,8 +31,8 @@ test.describe('Adding a product to the shopping cart',async () => {
     test('Attempting to adding a product to the cart when a size is not selected',async ({productPage}) => {
         
 
-        await step('color', product.color, async () => { await productPage.setColor(product.color) });
-        await step('quantity', product.quantity, async () => { await productPage.quantityField.setQuantity(product.quantity) });
+        await settingAttributeStep('color', product.color, async () => { await productPage.setColor(product.color) });
+        await settingAttributeStep('quantity', product.quantity, async () => { await productPage.quantityField.setQuantity(product.quantity) });
         await clickAddToCartButtonStep(productPage);
 
         await NHD_expect(productPage.page).selectorIsVisible(productPage.requiredSizeMessageSelector);
@@ -42,8 +42,8 @@ test.describe('Adding a product to the shopping cart',async () => {
 
     test('Attempting to adding a product to the cart when a color is not selected',async ({productPage}) => {
         
-        await step('size', product.size, async () => { await productPage.setSize(product.size) });
-        await step('quantity', product.quantity, async () => { await productPage.quantityField.setQuantity(product.quantity) });
+        await settingAttributeStep('size', product.size, async () => { await productPage.setSize(product.size) });
+        await settingAttributeStep('quantity', product.quantity, async () => { await productPage.quantityField.setQuantity(product.quantity) });
         await clickAddToCartButtonStep(productPage);
 
         await NHD_expect(productPage.page).selectorIsVisible(productPage.requiredColorMessageSelector);
@@ -52,9 +52,9 @@ test.describe('Adding a product to the shopping cart',async () => {
 
     test('Attempting to adding a product to the cart when a quantity is not selected',async ({productPage}) => {
         
-        await step('size', product.size, async () => { await productPage.setSize(product.size) });
-        await step('color', product.color, async () => { await productPage.setColor(product.color) });
-        await step('quantity', product.quantity, async () => { await productPage.quantityField.setQuantity('') });
+        await settingAttributeStep('size', product.size, async () => { await productPage.setSize(product.size) });
+        await settingAttributeStep('color', product.color, async () => { await productPage.setColor(product.color) });
+        await settingAttributeStep('quantity', product.quantity, async () => { await productPage.quantityField.setQuantity('') });
         await clickAddToCartButtonStep(productPage);
 
         await NHD_expect(productPage.page).selectorIsVisible(productPage.quantityField.getErrorMessageSelector());

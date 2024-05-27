@@ -1,5 +1,6 @@
 import { test, expect } from "../../fixtures/accountInformation";
-import { checkboxTestStep, inputVerificationStep } from "./commonSteps";
+import { checkboxTestStep } from "../../support/common-steps/accountInformationSteps";
+import { inputVerificationStep } from "../../support/commonSteps";
 
 test.describe('Input text verification',async () => {
 
@@ -8,7 +9,7 @@ test.describe('Input text verification',async () => {
         
         await inputVerificationStep(async () => {
             await accountInformation.enterFirstName(firstName)
-        }, firstName, 'First name');
+        }, 'First Name', firstName);
 
         expect(await accountInformation.getFirstNameFieldInput()).toEqual(firstName);
     })
@@ -18,7 +19,7 @@ test.describe('Input text verification',async () => {
         
         await inputVerificationStep(async () => {
             await accountInformation.enterLastName(lastName)
-        }, lastName, 'First name');
+        }, 'First name', lastName);
 
         expect(await accountInformation.getLastNameFieldInput()).toEqual(lastName);
     })
