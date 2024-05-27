@@ -1,31 +1,57 @@
-import { test as base} from "@playwright/test";
+import { test as base } from "@playwright/test";
 import { URLs } from "../enums/enums";
-import { Product } from "../models/models";
-import { ShippingAddressForm } from "../page-object/checkout/shippingAddressForm";
+import { Product, ShippingAddress } from "../models/models";
 import { shoppingCartAction } from "../support/shoppingCartAction";
-import { ShippingMethods } from "../page-object/checkout/shippingMethods";
+import { shippingAddressFormActions } from "../support/shippingAddressFormActions";
+import { CheckoutPage } from "../page-object/checkout/checkoutPage";
 
 export { expect } from "@playwright/test";
 
-export const test = base.extend<{product: Product} & {shippingAddressForm: ShippingAddressForm} & {shippingMethods: ShippingMethods}>({
+export const test = base.extend<{filled: boolean} & { product: Product } & {shippingAddress: ShippingAddress} & { checkoutpage: CheckoutPage }>({
 
-    product: [{ url: '', name: '', size: '', color: '', quantity: ''}, {option: true}],
+    filled: [false, {option: true}],
 
-    shippingAddressForm:async ({product, page}, use) => {
-        
-        const shippingAddressForm = new ShippingAddressForm(page);
+    product: [
+        {
+            url: '',
+            name: '',
+            size: '',
+            color: '',
+            quantity: ''
+        }, { option: true }],
+
+    shippingAddress: [
+        {
+            email: '',
+            firstName: '',
+            lastName: '',
+            company: '',
+            address_1: '',
+            address_2: '',
+            address_3: '',
+            city: '',
+            state: '',
+            postcode: '',
+            country: '',
+            phone: ''
+        }, { option: true }
+    ],
+
+
+    checkoutpage: async ({ product, filled, shippingAddress, page }, use) => {
+
+        const checkoutPage = new CheckoutPage(page);
 
         await shoppingCartAction(page, product);
-        await shippingAddressForm.goto(URLs.CHECKOUT);
-        await use(shippingAddressForm);
-    },
-
-    shippingMethods:async ({product, page}, use) => {
+        await checkoutPage.goto(URLs.CHECKOUT);
         
-        const shippingMethods = new ShippingMethods(page);
-
-        await shoppingCartAction(page, product);
-        await shippingMethods.goto(URLs.CHECKOUT);
-        await use(shippingMethods);
+        if(filled) {
+            
+            await shippingAddressFormActions(checkoutPage.shippingAddressForm, shippingAddress);
+        } else {
+            await checkoutPage.shippingMethods.clickFixedRadioButton();
+        }
+        
+        await use(checkoutPage);
     }
 })
