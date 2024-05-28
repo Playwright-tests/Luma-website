@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import { DynamicForm } from "./dynamicForm";
 
 export class ChangePasswordForm extends DynamicForm {
@@ -29,5 +29,15 @@ export class ChangePasswordForm extends DynamicForm {
     public async getNewPasswordFieldInput(): Promise<string | null> {
 
         return await this.getFieldInput(this.newPasswordLabelName);
+    }
+
+    public get currentPasswordFieldLocator(): Locator {
+
+        return this.getFieldLocator(this.currentPasswordLabelName);
+    }
+
+    public get newPasswordFieldLocator(): Locator {
+
+        return this.getFieldLocator(this.newPasswordLabelName);
     }
 }
