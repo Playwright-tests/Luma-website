@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import { BasePage } from "../base/basePage";
 
 export class DynamicForm extends BasePage {
@@ -13,6 +13,11 @@ export class DynamicForm extends BasePage {
     protected async fillField(label: string, data: string): Promise<void> {
 
         await this.page.getByLabel(label, {exact: true}).fill(data);
+    }
+
+    protected getFieldLocator(label: string): Locator {
+
+        return this.page.getByLabel(label, {exact: true});
     }
 
     protected async getFieldInput(label: string): Promise<string | null> {
