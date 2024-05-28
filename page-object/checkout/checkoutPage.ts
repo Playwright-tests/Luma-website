@@ -6,6 +6,7 @@ import { ShippingMethods } from "./shippingMethods";
 export class CheckoutPage extends BasePage {
 
     private readonly nextButton: Locator;
+    private readonly _paymentGroupSelector: string = 'div.payment-group';
 
     private readonly _shippingAddressForm: ShippingAddressForm;
     private readonly _shippingMethods: ShippingMethods;
@@ -33,5 +34,10 @@ export class CheckoutPage extends BasePage {
     public get shippingMethods(): ShippingMethods {
 
         return this._shippingMethods;
+    }
+
+    public get paymentGroupSelector(): string {
+
+        return this._paymentGroupSelector;
     }
 }
