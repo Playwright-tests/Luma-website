@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as os from 'os';
 
 /**
  * Read environment variables from file.
@@ -20,9 +21,35 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['line'],
+    ['allure-playwright',
+      {
+        detail: true,
+        suiteTitle: false,
+        environmentInfo: {
+          'Machine': os.machine(),
+          'System platform': os.platform(),
+          'Platform release': os.release(),
+          'Platform version': os.version(),
+          'CPU model': os.cpus().at(0)?.model,
+          'CPU speed': os.cpus().at(0)?.speed,
+          'CPU idle': os.cpus().at(0)?.times.idle,
+          'CPU irq': os.cpus().at(0)?.times.irq,
+          'CPU nice': os.cpus().at(0)?.times.nice,
+          'CPU sys': os.cpus().at(0)?.times.sys,
+          'CPU user': os.cpus().at(0)?.times.user,
+          'Arch': os.arch(),
+          'Total memory': os.totalmem(),
+          'Free memory': os.freemem(),
+          'Node version': process.version
+        }
+      }
+    ]
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   timeout: 10 * 20 * 1000,
+
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
