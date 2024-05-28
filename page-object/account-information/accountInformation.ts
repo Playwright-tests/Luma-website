@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import { BasePage } from "../base/basePage";
 import { ChangeEmailForm } from "./changeEmailForm";
 import { ChangePasswordForm } from "./changePasswordForm";
@@ -19,6 +19,16 @@ export class AccountInformation extends BasePage {
 
         this._changeEmailForm = new ChangeEmailForm(page);
         this._changePasswordForm = new ChangePasswordForm(page);
+    }
+
+    private getFieldLocator(label: string): Locator {
+
+        return this.page.getByLabel(label);
+    }
+
+    private getCheckboxLocator(label: string): Locator {
+
+        return this.page.getByLabel(label, {exact: true});
     }
 
     private async fillField(label: string, data: string): Promise<void> {
@@ -64,6 +74,26 @@ export class AccountInformation extends BasePage {
     public async clickChangePasswordCheckbox(): Promise<void> {
 
         await this.clickCheckbox(this.changePasswordCheckboxLabelName);
+    }
+
+    public get firstNameFieldLocator(): Locator {
+
+        return this.getFieldLocator(this.firstNameLabelName);
+    }
+
+    public get lastNameFieldLocator(): Locator {
+
+        return this.getFieldLocator(this.lastNameLabelName);
+    }
+
+    public get changeEmailCheckboxLocator(): Locator {
+
+        return this.getCheckboxLocator(this.changeEmailCheckboxLabelName);
+    }
+
+    public get changePasswordCheckboxLocator(): Locator {
+
+        return this.getCheckboxLocator(this.changePasswordCheckboxLabelName);
     }
 
     public get changeEmailForm(): ChangeEmailForm {
