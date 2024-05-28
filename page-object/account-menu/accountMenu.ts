@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import { BasePage } from "../base/basePage";
 
 export class AccountMenu extends BasePage {
@@ -11,5 +11,10 @@ export class AccountMenu extends BasePage {
     public async clickLink(linkName: string): Promise<void> {
 
         await this.page.getByRole('link', {name: linkName}).click();
+    }
+
+    public getLinkLocator(linkName: string): Locator {
+
+        return this.page.getByRole('link', {name: linkName});
     }
 }
