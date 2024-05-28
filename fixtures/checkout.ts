@@ -7,7 +7,7 @@ import { CheckoutPage } from "../page-object/checkout/checkoutPage";
 
 export { expect } from "@playwright/test";
 
-export const test = base.extend<{filled: boolean} & { product: Product } & {shippingAddress: ShippingAddress} & { checkoutpage: CheckoutPage }>({
+export const test = base.extend<{filled: boolean} & { product: Product } & {shippingAddress: ShippingAddress} & { checkoutPage: CheckoutPage }>({
 
     filled: [false, {option: true}],
 
@@ -38,7 +38,7 @@ export const test = base.extend<{filled: boolean} & { product: Product } & {ship
     ],
 
 
-    checkoutpage: async ({ product, filled, shippingAddress, page }, use) => {
+    checkoutPage: async ({ product, filled, shippingAddress, page }, use) => {
 
         const checkoutPage = new CheckoutPage(page);
 
