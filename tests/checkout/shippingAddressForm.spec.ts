@@ -7,113 +7,113 @@ test.use({product: product});
 
 test.describe('The shipping address form input verification',async () => {
     
-    test('The "Email Address" field input verification',async ({checkoutpage}) => {
+    test('The "Email Address" field input verification',async ({checkoutPage}) => {
         
         const email = 'john@domain.com';
 
         await inputVerificationStep(async () => {
-            await checkoutpage.shippingAddressForm.enterEmail(email);
+            await checkoutPage.shippingAddressForm.enterEmail(email);
         }, 'Email Address', email);
 
-        expect(await checkoutpage.shippingAddressForm.getEmailFieldInput()).toEqual(email);
+        expect(await checkoutPage.shippingAddressForm.getEmailFieldInput()).toEqual(email);
     })
 
-    test('The "First Name" field input verification',async ({checkoutpage}) => {
+    test('The "First Name" field input verification',async ({checkoutPage}) => {
         
         const firstName = 'First name';
 
         await inputVerificationStep(async () => {
-            await checkoutpage.shippingAddressForm.enterFirstName(firstName);
+            await checkoutPage.shippingAddressForm.enterFirstName(firstName);
         }, 'First Name', firstName);
 
-        expect(await checkoutpage.shippingAddressForm.getFirstNameFieldInput()).toEqual(firstName);
+        expect(await checkoutPage.shippingAddressForm.getFirstNameFieldInput()).toEqual(firstName);
     })
 
-    test('The "Last Name" field input verification',async ({checkoutpage}) => {
+    test('The "Last Name" field input verification',async ({checkoutPage}) => {
         
         const lastName = 'Last name';
 
         await inputVerificationStep(async () => {
-            await checkoutpage.shippingAddressForm.enterLastName(lastName);
+            await checkoutPage.shippingAddressForm.enterLastName(lastName);
         }, 'Last Name', lastName);
 
-        expect(await checkoutpage.shippingAddressForm.getLastNameFieldInput()).toEqual(lastName);
+        expect(await checkoutPage.shippingAddressForm.getLastNameFieldInput()).toEqual(lastName);
     })
 
-    test('The "Company" field input verification',async ({checkoutpage}) => {
+    test('The "Company" field input verification',async ({checkoutPage}) => {
         
         const company = 'Company';
 
         await inputVerificationStep(async () => {
-            await checkoutpage.shippingAddressForm.enterCompany(company);
+            await checkoutPage.shippingAddressForm.enterCompany(company);
         }, 'Company', company);
 
-        expect(await checkoutpage.shippingAddressForm.getCompanyFieldInput()).toEqual(company);
+        expect(await checkoutPage.shippingAddressForm.getCompanyFieldInput()).toEqual(company);
     })
 
-    test('The "Street Address" line 1 field input verification',async ({checkoutpage}) => {
+    test('The "Street Address" line 1 field input verification',async ({checkoutPage}) => {
         
         const address = 'Address';
 
         await inputVerificationStep(async () => {
-            await checkoutpage.shippingAddressForm.enterAddress_1(address);
+            await checkoutPage.shippingAddressForm.enterAddress_1(address);
         }, 'Street Address line 1', address);
 
-        expect(await checkoutpage.shippingAddressForm.getAddressFieldInput_1()).toEqual(address);
+        expect(await checkoutPage.shippingAddressForm.getAddressFieldInput_1()).toEqual(address);
     })
 
-    test('The "Street Address" line 2 field input verification',async ({checkoutpage}) => {
+    test('The "Street Address" line 2 field input verification',async ({checkoutPage}) => {
         
         const address = 'Address';
 
         await inputVerificationStep(async () => {
-            await checkoutpage.shippingAddressForm.enterAddress_2(address);
+            await checkoutPage.shippingAddressForm.enterAddress_2(address);
         }, 'Street Address line 2', address);
 
-        expect(await checkoutpage.shippingAddressForm.getAddressFieldInput_2()).toEqual(address);
+        expect(await checkoutPage.shippingAddressForm.getAddressFieldInput_2()).toEqual(address);
     })
 
-    test('The "Street Address" line 3 field input verification',async ({checkoutpage}) => {
+    test('The "Street Address" line 3 field input verification',async ({checkoutPage}) => {
         
         const address = 'Address';
 
         await inputVerificationStep(async () => {
-            await checkoutpage.shippingAddressForm.enterAddress_3(address);
+            await checkoutPage.shippingAddressForm.enterAddress_3(address);
         }, 'Street Address line 3', address);
 
-        expect(await checkoutpage.shippingAddressForm.getAddressFieldInput_3()).toEqual(address);
+        expect(await checkoutPage.shippingAddressForm.getAddressFieldInput_3()).toEqual(address);
     })
 
-    test('The "City" field input verification',async ({checkoutpage}) => {
+    test('The "City" field input verification',async ({checkoutPage}) => {
         
         const city = 'City';
 
         await inputVerificationStep(async () => {
-            await checkoutpage.shippingAddressForm.enterCity(city);
+            await checkoutPage.shippingAddressForm.enterCity(city);
         }, 'City', city);
 
-        expect(await checkoutpage.shippingAddressForm.getCityFieldInput()).toEqual(city);
+        expect(await checkoutPage.shippingAddressForm.getCityFieldInput()).toEqual(city);
     })
 
-    test('The "Postcode" field input verification',async ({checkoutpage}) => {
+    test('The "Postcode" field input verification',async ({checkoutPage}) => {
         
         const postcode = 'Postcode';
 
         await inputVerificationStep(async () => {
-            await checkoutpage.shippingAddressForm.enterPostcode(postcode);
+            await checkoutPage.shippingAddressForm.enterPostcode(postcode);
         }, 'Postcode', postcode);
 
-        expect(await checkoutpage.shippingAddressForm.getPostcodeFieldInput()).toEqual(postcode);
+        expect(await checkoutPage.shippingAddressForm.getPostcodeFieldInput()).toEqual(postcode);
     })
 
-    test('The "Phone Number" field input verification',async ({checkoutpage}) => {
+    test('The "Phone Number" field input verification',async ({checkoutPage}) => {
         
         const phone = '111222333';
 
         await inputVerificationStep(async () => {
-            await checkoutpage.shippingAddressForm.enterPhone(phone);
+            await checkoutPage.shippingAddressForm.enterPhone(phone);
         }, 'Phone Number', phone);
 
-        expect(await checkoutpage.shippingAddressForm.getPhoneFieldInput()).toEqual(phone);
+        expect(await checkoutPage.shippingAddressForm.getPhoneFieldInput()).toEqual(phone);
     })
 })
