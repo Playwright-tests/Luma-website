@@ -5,17 +5,15 @@ export class ShippingAddressForm extends BasePage {
 
     private readonly regionSelector: string = 'select[name="region_id"]';
     private readonly _emailErrorSelector: string = '#customer-email-error';
-    private readonly _firstNameErrorSelector: string = '#error-OCPOKWY';
-    private readonly _lastNameErrorSelector: string = '#error-TC9QPN6';
-    private readonly _addressErrorSelector: string = '#error-I1C23LP';
-    private readonly _cityErrorSelector: string = '#error-QH3QKOM';
-    private readonly _regionErrorSelector: string = '#error-EG1Q52C';
-    private readonly _postcodeErrorSelector: string = 'error-WIW67KU';
-    private readonly _phoneErrorSelector: string = 'error-U3IWX2B';
 
     constructor(page: Page) {
 
         super(page);
+    }
+
+    private getErrorSelector(field: string): string {
+
+        return `div[name="shippingAddress.${field}"] span[data-bind="text: element.error"]`;
     }
 
     private async fillField(label: string, data: string): Promise<void> {
@@ -145,75 +143,36 @@ export class ShippingAddressForm extends BasePage {
     
     public get firstNameErrorSelector() : string {
         
-        return this._firstNameErrorSelector
+        return this.getErrorSelector('firstname');
     }
 
     public get lastNameErrorSelector() : string {
         
-        return this._lastNameErrorSelector;
+        return this.getErrorSelector('lastname');
     }
     
     public get addressErrorSelector() : string {
         
-        return this._addressErrorSelector;
+        return this.getErrorSelector('street.0');
     }
     
     public get cityErrorSelector() : string {
         
-        return this._cityErrorSelector;
+        return this.getErrorSelector('city');
     }
     
     public get regionErrorSelector() : string {
         
-        return this._regionErrorSelector;
+        return this.getErrorSelector('region_id');
     }
 
     public get postcodeErrorSelector() : string {
         
-        return this._postcodeErrorSelector;
+        return this.getErrorSelector('postcode');
     }
     
     public get phoneErrorSelector() : string {
         
-        return this._phoneErrorSelector;
-    }
-    
-    public get emailErrorLocator() : Locator {
-        
-        return this.page.locator(this._emailErrorSelector);
-    }
-
-    public get firstNameErrorLocator() : Locator {
-        
-        return this.page.locator(this._firstNameErrorSelector);
-    }
-
-    public get lastNameErrorLocator() : Locator {
-        
-        return this.page.locator(this._lastNameErrorSelector);
-    }
-
-    public get addressErrorLocator() : Locator {
-        return this.page.locator(this._addressErrorSelector);
-    }
-    
-    public get cityErrorLocator() : Locator {
-        
-        return this.page.locator(this._cityErrorSelector);
-    }
-
-    public get regionErrorLocator() : Locator {
-        
-        return this.page.locator(this._regionErrorSelector);
-    }
-
-    public get postcodeErrorLocator() : Locator {
-        
-        return this.page.locator(this._postcodeErrorSelector);
-    }
-
-    public get phoneErrorLocator() : Locator {
-        
-        return this.page.locator(this._phoneErrorSelector);
+        return this.getErrorSelector('telephone');
     }
 }
