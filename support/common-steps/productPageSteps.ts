@@ -1,9 +1,9 @@
-import { test } from "@playwright/test";
 import { ProductPage } from "../../page-object/product-page/productPage";
+import { allure } from "allure-playwright";
 
 export async function settingAttributeStep(dataName: string, data: string, func: any) {
     
-    await test.step(`Set ${dataName}: ${data}`,async () => {
+    await allure.step(`Set ${dataName}: ${data}`,async () => {
         
         await func();
     })
@@ -11,7 +11,7 @@ export async function settingAttributeStep(dataName: string, data: string, func:
 
 export async function clickAddToCartButtonStep(productPage: ProductPage) {
     
-    await test.step('Click the "Add to cart" button',async () => {
+    await allure.step('Click the "Add to cart" button',async () => {
         
         await productPage.clickAddToCartButton();
     })
