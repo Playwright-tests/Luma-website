@@ -8,23 +8,23 @@ test.use({product: product});
 test.describe('Shipping methods radio buttons',async () => {
     
 
-    test('Clicking the "Fixed" radio button',async ({checkoutpage}) => {
+    test('Clicking the "Fixed" radio button',async ({checkoutPage}) => {
         
         await radioButtonSteps(async () => {
-            await checkoutpage.shippingMethods.clickFixedRadioButton();
+            await checkoutPage.shippingMethods.clickFixedRadioButton();
         }, 'Fixed');
 
-        expect(checkoutpage.shippingMethods.fixedRadioButtonLocator).toBeChecked();
-        expect(checkoutpage.shippingMethods.tableRateRadioButtonLocator).not.toBeChecked();
+        expect(checkoutPage.shippingMethods.fixedRadioButtonLocator).toBeChecked();
+        expect(checkoutPage.shippingMethods.tableRateRadioButtonLocator).not.toBeChecked();
     })
 
-    test('Clicking the "Table Rate" radio button',async ({checkoutpage}) => {
+    test('Clicking the "Table Rate" radio button',async ({checkoutPage}) => {
         
         await radioButtonSteps(async () => {
-            await checkoutpage.shippingMethods.clickTableRateRadioButton();
+            await checkoutPage.shippingMethods.clickTableRateRadioButton();
         }, 'Fixed');
 
-        expect(checkoutpage.shippingMethods.fixedRadioButtonLocator).not.toBeChecked();
-        expect(checkoutpage.shippingMethods.tableRateRadioButtonLocator).toBeChecked();
+        expect(checkoutPage.shippingMethods.fixedRadioButtonLocator).not.toBeChecked();
+        expect(checkoutPage.shippingMethods.tableRateRadioButtonLocator).toBeChecked();
     })
 })
