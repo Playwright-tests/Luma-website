@@ -12,92 +12,114 @@ test.use({product: product, filled: false});
 
 test.describe('Filling the shipping address form',async () => {
     
-    async function incorrectDataActions(checkoutPage: CheckoutPage, property: string, selector: string, field: string) {
+    async function performFieldValidationActions(checkoutPage: CheckoutPage, property: string, data: string, selector: string, expectedMessage: string) {
         
-        shippingAddress[property] = incorrectDatas[property];
-        await shippingAddressFormSteps(checkoutPage, shippingAddress);
-        await NHD_expect(checkoutPage.page).selectorIsVisible(selector);
-        expect(await checkoutPage.page.locator(selector).textContent()).toEqual(`Please enter a valid ${field}`);
-    }
-
-    async function blankFieldActions(checkoutPage: CheckoutPage, property: string, selector: string) {
-    
-        const expectedMessage = 'This is a required field.';
-
-        shippingAddress[property] = '';
-        
+        shippingAddress[property] = data;
         await shippingAddressFormSteps(checkoutPage, shippingAddress);
         await NHD_expect(checkoutPage.page).selectorIsVisible(selector);
         expect(await checkoutPage.page.locator(selector).textContent()).toEqual(expectedMessage);
     }
 
-    test('Filling the shiping address form with correct data',async ({checkoutPage: checkoutpage}) => {
+    async function incorrectDataActions(checkoutPage: CheckoutPage, property: string, selector: string, field: string) {
         
-        await shippingAddressFormSteps(checkoutpage, shippingAddress);
+        await performFieldValidationActions(checkoutPage, property, incorrectDatas[property], selector, `Please enter a valid ${field}`);
+    }
+
+    async function blankFieldPositiveActions(checkoutPage: CheckoutPage, property: string) {
+        
+        shippingAddress[property] = '';
+        await shippingAddressFormSteps(checkoutPage, shippingAddress);
+        await NHD_expect(checkoutPage.page).selectorIsVisible(checkoutPage.paymentGroupSelector);
+    }
+
+    async function blankFieldNegativeActions(checkoutPage: CheckoutPage, property: string, selector: string) {
+    
+        await performFieldValidationActions(checkoutPage, property, '', selector, 'This is a required field.')
+    }
+
+    test('Filling the shiping address form with correct data',async ({checkoutPage}) => {
+        
+        await shippingAddressFormSteps(checkoutPage, shippingAddress);
+        await NHD_expect(checkoutPage.page).selectorIsVisible(checkoutPage.paymentGroupSelector);
     })
 
-    test.only('Incorrect first name',async ({checkoutPage: checkoutpage}) => {
+    test('Blank the "Company" field',async ({checkoutPage}) => {
+        
+        await blankFieldPositiveActions(checkoutPage, 'company');
+    })
+
+    test('Blank the "Street Address" line 2 field',async ({checkoutPage}) => {
+        
+        await blankFieldPositiveActions(checkoutPage, 'address_2');
+    })
+
+    test('Blank the "Street Address" line 3 field',async ({checkoutPage}) => {
+        
+        await blankFieldPositiveActions(checkoutPage, 'address_3');
+    })
+
+    test('Incorrect first name',async ({checkoutPage: checkoutpage}) => {
         
         await incorrectDataActions(checkoutpage, 'firstName', checkoutpage.shippingAddressForm.firstNameErrorSelector, 'first name');
     })
 
-    test.only('Incorrect last name',async ({checkoutPage: checkoutpage}) => {
+    test('Incorrect last name',async ({checkoutPage: checkoutpage}) => {
         
         await incorrectDataActions(checkoutpage, 'lastName', checkoutpage.shippingAddressForm.lastNameErrorSelector, 'last name');
     })
 
-    test.only('Incorrect address line 1',async ({checkoutPage: checkoutpage}) => {
+    test('Incorrect address line 1',async ({checkoutPage: checkoutpage}) => {
         
         await incorrectDataActions(checkoutpage, 'address_1', checkoutpage.shippingAddressForm.addressErrorSelector, 'address');
     })
 
-    test.only('Incorrect city',async ({checkoutPage: checkoutpage}) => {
+    test('Incorrect city',async ({checkoutPage: checkoutpage}) => {
         
         await incorrectDataActions(checkoutpage, 'city', checkoutpage.shippingAddressForm.cityErrorSelector, 'city');
     })
 
-    test.only('Incorrect postcode',async ({checkoutPage: checkoutpage}) => {
+    test('Incorrect postcode',async ({checkoutPage: checkoutpage}) => {
         
         await incorrectDataActions(checkoutpage, 'postcode', checkoutpage.shippingAddressForm.postcodeErrorSelector, 'postcode');
     })
 
-    test.only('Incorrect phone number',async ({checkoutPage: checkoutpage}) => {
+    test('Incorrect phone number',async ({checkoutPage: checkoutpage}) => {
         
         await incorrectDataActions(checkoutpage, 'phone', checkoutpage.shippingAddressForm.phoneErrorSelector, 'phone');
     })
 
-    test.only('Blank the "Email" field',async ({checkoutPage: checkoutpage}) => {
+    test('Blank the "Email" field',async ({checkoutPage: checkoutpage}) => {
         
-        await blankFieldActions(checkoutpage, 'email', checkoutpage.shippingAddressForm.emailErrorSelector);
+        await blankFieldNegativeActions(checkoutpage, 'email', checkoutpage.shippingAddressForm.emailErrorSelector);
     })
 
-    test.only('Blank the "First Name" field',async ({checkoutPage: checkoutpage}) => {
+    test('Blank the "First Name" field',async ({checkoutPage: checkoutpage}) => {
         
-        await blankFieldActions(checkoutpage, 'firstName', checkoutpage.shippingAddressForm.firstNameErrorSelector);
+        await blankFieldNegativeActions(checkoutpage, 'firstName', checkoutpage.shippingAddressForm.firstNameErrorSelector);
     })
 
-    test.only('Blank the "Last Name" field',async ({checkoutPage: checkoutpage}) => {
+    test('Blank the "Last Name" field',async ({checkoutPage: checkoutpage}) => {
         
-        await blankFieldActions(checkoutpage, 'lastName', checkoutpage.shippingAddressForm.lastNameErrorSelector);
+        await blankFieldNegativeActions(checkoutpage, 'lastName', checkoutpage.shippingAddressForm.lastNameErrorSelector);
     })
 
-    test.only('Blank the "Street Address" field',async ({checkoutPage: checkoutpage}) => {
+    test('Blank the "Street Address" field',async ({checkoutPage: checkoutpage}) => {
         
-        await blankFieldActions(checkoutpage, 'address_1', checkoutpage.shippingAddressForm.addressErrorSelector);
+        await blankFieldNegativeActions(checkoutpage, 'address_1', checkoutpage.shippingAddressForm.addressErrorSelector);
     })
 
-    test.only('Blank the "City" field',async ({checkoutPage: checkoutpage}) => {
+    test('Blank the "City" field',async ({checkoutPage: checkoutpage}) => {
         
-        await blankFieldActions(checkoutpage, 'city', checkoutpage.shippingAddressForm.cityErrorSelector);
+        await blankFieldNegativeActions(checkoutpage, 'city', checkoutpage.shippingAddressForm.cityErrorSelector);
     })
 
-    test.only('Blank the "ZIP/Postal Code" field',async ({checkoutPage: checkoutpage}) => {
+    test('Blank the "ZIP/Postal Code" field',async ({checkoutPage: checkoutpage}) => {
         
-        await blankFieldActions(checkoutpage, 'postcode', checkoutpage.shippingAddressForm.postcodeErrorSelector);
+        await blankFieldNegativeActions(checkoutpage, 'postcode', checkoutpage.shippingAddressForm.postcodeErrorSelector);
     })
 
-    test.only('Blank the "Phone Number" field',async ({checkoutPage: checkoutpage}) => {
+    test('Blank the "Phone Number" field',async ({checkoutPage: checkoutpage}) => {
         
-        await blankFieldActions(checkoutpage, 'phone', checkoutpage.shippingAddressForm.phoneErrorSelector);
+        await blankFieldNegativeActions(checkoutpage, 'phone', checkoutpage.shippingAddressForm.phoneErrorSelector);
     })
 })
