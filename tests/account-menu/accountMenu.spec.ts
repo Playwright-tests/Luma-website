@@ -1,3 +1,4 @@
+import { allure } from "allure-playwright";
 import { PropertyNames } from "../../enums/enums";
 import { expect, test } from "../../fixtures/accountMenu";
 import { getLinks } from "../../testdata-providers/testDataProviders";
@@ -10,7 +11,7 @@ test.describe('The account menu',async () => {
 
         test(`Clicking the "${link.link}" link`,async ({accountMenu}) => {
             
-            await test.step(`Click the "${link.link}" link`,async () => {
+            await allure.step(`Click the "${link.link}" link`,async () => {
                 
                 await accountMenu.clickLink(link.link);
             })

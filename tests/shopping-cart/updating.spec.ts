@@ -1,3 +1,4 @@
+import { allure } from "allure-playwright";
 import { test, expect } from "../../fixtures/shoppingCart";
 import { updatingSteps } from "../../support/common-steps/shoppingCartSteps";
 import { getSubtotal } from "../../support/subtotalComputing";
@@ -30,7 +31,7 @@ test.describe('Updating the shopping cart',async () => {
         const index = 0;
         const expectedRowsCount = shoppingCart.table.getRowsCount() - 1;
         
-        await test.step('Click the remove button',async () => {
+        await allure.step('Click the remove button',async () => {
             
             await shoppingCart.table.clickRemoveButton(index);
         })

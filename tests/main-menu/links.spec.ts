@@ -1,6 +1,7 @@
 import { LinkTestdataProviders } from "../../testdata-providers/linkTestdataProviders";
 import { PropertyNames } from "../../enums/enums";
 import { test, expect } from "../../fixtures/menu";
+import { allure } from "allure-playwright";
 
 LinkTestdataProviders.load('links.json');
 const links = LinkTestdataProviders.get(PropertyNames.MAIN_MENU);
@@ -11,7 +12,7 @@ test.describe('Main menu links',async () => {
 
         test(`Clicking the "${link.link}" link`,async ({menu}) => {
             
-            await test.step(`Click the "${link.link}"`,async () => {
+            await allure.step(`Click the "${link.link}"`,async () => {
                 
                 await menu.click(link.link);
             })
