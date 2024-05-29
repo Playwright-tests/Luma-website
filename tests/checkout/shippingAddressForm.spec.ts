@@ -1,12 +1,19 @@
 import { test, expect } from "../../fixtures/checkout";
 import { getProducts } from "../../testdata-providers/testDataProviders";
 import { inputVerificationStep } from "../../support/commonSteps";
+import { allure } from "allure-playwright";
 
 const product = getProducts()[0];
 test.use({product: product});
 
 test.describe('The shipping address form input verification',async () => {
     
+    test.beforeEach(async () => {
+        
+        await allure.owner('Paweł Aksman');
+        await allure.tags('Forms', 'Fields', 'Checkout');
+    })
+
     test('The "Email Address" field input verification',async ({checkoutPage}) => {
         
         const email = 'john@domain.com';
