@@ -3,6 +3,16 @@ import { BasePage } from "../base/basePage";
 
 export class ShippingAddressForm extends BasePage {
 
+    private readonly firstNameLabelName: string = 'First Name';
+    private readonly lastNameLabelName: string = 'Last Name';
+    private readonly companyLabelName: string = 'Company';
+    private readonly addressLabelName_1: string = 'Street Address: Line 1';
+    private readonly addressLabelName_2: string = 'Street Address: Line 2';
+    private readonly addressLabelName_3: string = 'Street Address: Line 3';
+    private readonly cityLabelName: string = 'City';
+    private readonly postcodeLabelName: string = 'ZIP/Postal Code';
+    private readonly phoneLabelName: string = 'Phone Number';
+
     private readonly regionSelector: string = 'select[name="region_id"]';
     private readonly _emailErrorSelector: string = '#customer-email-error';
 
@@ -38,47 +48,47 @@ export class ShippingAddressForm extends BasePage {
 
     public async enterFirstName(firstName: string): Promise<void> {
 
-        await this.fillField('First Name', firstName);
+        await this.fillField(this.firstNameLabelName, firstName);
     }
 
     public async enterLastName(lastName: string): Promise<void> {
 
-        await this.fillField('Last Name', lastName);
+        await this.fillField(this.lastNameLabelName, lastName);
     }
 
     public async enterCompany(company: string): Promise<void> {
 
-        await this.fillField('Company', company);
+        await this.fillField(this.companyLabelName, company);
     }
 
     public async enterAddress_1(address: string): Promise<void> {
 
-        await this.fillField('Street Address: Line 1', address);
+        await this.fillField(this.addressLabelName_1, address);
     }
 
     public async enterAddress_2(address: string): Promise<void> {
 
-        await this.fillField('Street Address: Line 2', address);
+        await this.fillField(this.addressLabelName_2, address);
     }
 
     public async enterAddress_3(address: string): Promise<void> {
 
-        await this.fillField('Street Address: Line 3', address);
+        await this.fillField(this.addressLabelName_3, address);
     }
 
     public async enterCity(city: string): Promise<void> {
 
-        await this.fillField('City', city);
+        await this.fillField(this.cityLabelName, city);
     }
 
     public async enterPostcode(postcode: string): Promise<void> {
 
-        await this.fillField('Zip/Postal Code', postcode);
+        await this.fillField(this.postcodeLabelName, postcode);
     }
 
     public async enterPhone(phone: string): Promise<void> {
 
-        await this.fillField('Phone Number', phone);
+        await this.fillField(this.phoneLabelName, phone);
     }
 
     public async selectRegion(region: string): Promise<void> {
@@ -98,47 +108,47 @@ export class ShippingAddressForm extends BasePage {
 
     public async getFirstNameFieldInput(): Promise<string | null> {
 
-        return await this.getFieldInput('First Name');
+        return await this.getFieldInput(this.firstNameLabelName);
     }
 
     public async getLastNameFieldInput(): Promise<string | null> {
 
-        return await this.getFieldInput('Last Name');
+        return await this.getFieldInput(this.lastNameLabelName);
     }
 
     public async getCompanyFieldInput(): Promise<string | null> {
 
-        return await this.getFieldInput('Company');
+        return await this.getFieldInput(this.companyLabelName);
     }
 
     public async getAddressFieldInput_1(): Promise<string | null> {
 
-        return await this.getFieldInput('Street Address: Line 1');
+        return await this.getFieldInput(this.addressLabelName_1);
     }
 
     public async getAddressFieldInput_2(): Promise<string | null> {
 
-        return await this.getFieldInput('Street Address: Line 2');
+        return await this.getFieldInput(this.addressLabelName_2);
     }
 
     public async getAddressFieldInput_3(): Promise<string | null> {
 
-        return await this.getFieldInput('Street Address: Line 3');
+        return await this.getFieldInput(this.addressLabelName_3);
     }
 
     public async getCityFieldInput(): Promise<string | null> {
 
-        return await this.getFieldInput('City');
+        return await this.getFieldInput(this.cityLabelName);
     }
 
     public async getPostcodeFieldInput(): Promise<string | null> {
 
-        return await this.getFieldInput('Zip/Postal Code');
+        return await this.getFieldInput(this.postcodeLabelName);
     }
 
     public async getPhoneFieldInput(): Promise<string | null> {
 
-        return await this.getFieldInput('Phone Number');
+        return await this.getFieldInput(this.phoneLabelName);
     }
 
     public get emailErrorSelector() : string {
@@ -188,46 +198,46 @@ export class ShippingAddressForm extends BasePage {
 
     public get firstNameFieldLocator(): Locator {
 
-        return this.getFieldLocator('First Name');        
+        return this.getFieldLocator(this.firstNameLabelName);        
     }
 
     public get lastNameFieldLocator(): Locator {
 
-        return this.getFieldLocator('Last Name');        
+        return this.getFieldLocator(this.lastNameLabelName);        
     }
 
     public get companyFieldLocator(): Locator {
 
-        return this.getFieldLocator('Company')
+        return this.getFieldLocator(this.companyLabelName)
     }
 
     public get addressFieldLocator_1(): Locator {
 
-        return this.getFieldLocator('Street Address: Line 1');
+        return this.getFieldLocator(this.addressLabelName_1);
     }
 
     public get addressFieldLocator_2(): Locator {
 
-        return this.getFieldLocator('Street Address: Line 2');
+        return this.getFieldLocator(this.addressLabelName_2);
     }
 
     public get addressFieldLocator_3(): Locator {
 
-        return this.getFieldLocator('Street Address: Line 3');
+        return this.getFieldLocator(this.addressLabelName_3);
     }
 
     public get cityLocator_1(): Locator {
 
-        return this.getFieldLocator('City');
+        return this.getFieldLocator(this.cityLabelName);
     }
 
     public get postcodeFieldLocator_1(): Locator {
 
-        return this.getFieldLocator('ZIP/Postal Code');
+        return this.getFieldLocator(this.postcodeLabelName);
     }
 
     public get phoneFieldLocator_1(): Locator {
 
-        return this.getFieldLocator('Phone Number');
+        return this.getFieldLocator(this.phoneLabelName);
     }
 }
