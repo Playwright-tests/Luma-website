@@ -26,6 +26,11 @@ export class ShippingAddressForm extends BasePage {
         return await this.page.getByLabel(label).inputValue();
     }
 
+    private getFieldLocator(label: string): Locator {
+
+        return this.page.getByLabel(label);
+    }
+
     public async enterEmail(email: string): Promise<void> {
 
         await this.page.getByRole('textbox', {name: 'Email Address * Email Address*'}).fill(email);
@@ -174,5 +179,55 @@ export class ShippingAddressForm extends BasePage {
     public get phoneErrorSelector() : string {
         
         return this.getErrorSelector('telephone');
+    }
+
+    public get emailFieldLocator(): Locator {
+
+        return this.page.getByRole('textbox', {name: 'Email Address * Email Address*'});
+    }
+
+    public get firstNameFieldLocator(): Locator {
+
+        return this.getFieldLocator('First Name');        
+    }
+
+    public get lastNameFieldLocator(): Locator {
+
+        return this.getFieldLocator('Last Name');        
+    }
+
+    public get companyFieldLocator(): Locator {
+
+        return this.getFieldLocator('Company')
+    }
+
+    public get addressFieldLocator_1(): Locator {
+
+        return this.getFieldLocator('Street Address: Line 1');
+    }
+
+    public get addressFieldLocator_2(): Locator {
+
+        return this.getFieldLocator('Street Address: Line 2');
+    }
+
+    public get addressFieldLocator_3(): Locator {
+
+        return this.getFieldLocator('Street Address: Line 3');
+    }
+
+    public get cityLocator_1(): Locator {
+
+        return this.getFieldLocator('City');
+    }
+
+    public get postcodeFieldLocator_1(): Locator {
+
+        return this.getFieldLocator('ZIP/Postal Code');
+    }
+
+    public get phoneFieldLocator_1(): Locator {
+
+        return this.getFieldLocator('Phone Number');
     }
 }
