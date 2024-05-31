@@ -2,7 +2,7 @@ import { test, expect } from "../../fixtures/checkout";
 import { getProducts } from "../../testdata-providers/testDataProviders";
 import { inputVerificationStep } from "../../support/commonSteps";
 import { allure } from "allure-playwright";
-import { addParameters } from "../../support/allure";
+import { addParameters, takeScreenshot } from "../../support/allure";
 
 const product = getProducts()[0];
 test.use({product: product});
@@ -39,6 +39,7 @@ test.describe('The shipping address form input verification',async () => {
         await addParameters(new Map<string, string>([['Input', firstName]]));
 
         await inputVerificationStep(async () => {
+            await takeScreenshot('firstNameField', checkoutPage.shippingAddressForm.firstNameFieldLocator);
             await checkoutPage.shippingAddressForm.enterFirstName(firstName);
         }, 'First Name', firstName);
 
@@ -54,6 +55,7 @@ test.describe('The shipping address form input verification',async () => {
         await addParameters(new Map<string, string>([['Input', lastName]]));
 
         await inputVerificationStep(async () => {
+            await takeScreenshot('lastNameField', checkoutPage.shippingAddressForm.lastNameFieldLocator);
             await checkoutPage.shippingAddressForm.enterLastName(lastName);
         }, 'Last Name', lastName);
 
@@ -69,6 +71,7 @@ test.describe('The shipping address form input verification',async () => {
         await addParameters(new Map<string, string>([['Input', company]]));
 
         await inputVerificationStep(async () => {
+            await takeScreenshot('companyField', checkoutPage.shippingAddressForm.companyFieldLocator);
             await checkoutPage.shippingAddressForm.enterCompany(company);
         }, 'Company', company);
 
@@ -84,6 +87,7 @@ test.describe('The shipping address form input verification',async () => {
         await addParameters(new Map<string, string>([['Input', address]]))
 
         await inputVerificationStep(async () => {
+            await takeScreenshot('addressField_1', checkoutPage.shippingAddressForm.addressFieldLocator_1);
             await checkoutPage.shippingAddressForm.enterAddress_1(address);
         }, 'Street Address line 1', address);
 
@@ -99,6 +103,7 @@ test.describe('The shipping address form input verification',async () => {
         await addParameters(new Map<string, string>([['Input', address]]));
 
         await inputVerificationStep(async () => {
+            await takeScreenshot('addressField_2', checkoutPage.shippingAddressForm.addressFieldLocator_2);
             await checkoutPage.shippingAddressForm.enterAddress_2(address);
         }, 'Street Address line 2', address);
 
@@ -114,6 +119,7 @@ test.describe('The shipping address form input verification',async () => {
         await addParameters(new Map<string, string>([['Input', address]]));
 
         await inputVerificationStep(async () => {
+            await takeScreenshot('addressField_3', checkoutPage.shippingAddressForm.addressFieldLocator_3);
             await checkoutPage.shippingAddressForm.enterAddress_3(address);
         }, 'Street Address line 3', address);
 
@@ -129,6 +135,7 @@ test.describe('The shipping address form input verification',async () => {
         await addParameters(new Map<string, string>([['Input', city]]));
 
         await inputVerificationStep(async () => {
+            await takeScreenshot('firstNameField', checkoutPage.shippingAddressForm.cityFieldLocator);
             await checkoutPage.shippingAddressForm.enterCity(city);
         }, 'City', city);
 
@@ -144,6 +151,7 @@ test.describe('The shipping address form input verification',async () => {
         await addParameters(new Map<string, string>([['Input', postcode]]));
 
         await inputVerificationStep(async () => {
+            await takeScreenshot('postcodeField', checkoutPage.shippingAddressForm.postcodeFieldLocator);
             await checkoutPage.shippingAddressForm.enterPostcode(postcode);
         }, 'Postcode', postcode);
 
@@ -159,6 +167,7 @@ test.describe('The shipping address form input verification',async () => {
         await addParameters(new Map<string, string>([['Input', phone]]));
 
         await inputVerificationStep(async () => {
+            await takeScreenshot('phoneField', checkoutPage.shippingAddressForm.phoneFieldLocator);
             await checkoutPage.shippingAddressForm.enterPhone(phone);
         }, 'Phone Number', phone);
 
