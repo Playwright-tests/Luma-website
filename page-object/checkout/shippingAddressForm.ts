@@ -226,17 +226,17 @@ export class ShippingAddressForm extends BasePage {
         return this.getFieldLocator(this.addressLabelName_3);
     }
 
-    public get cityLocator_1(): Locator {
+    public get cityFieldLocator(): Locator {
 
         return this.getFieldLocator(this.cityLabelName);
     }
 
-    public get postcodeFieldLocator_1(): Locator {
+    public get postcodeFieldLocator(): Locator {
 
         return this.getFieldLocator(this.postcodeLabelName);
     }
 
-    public get phoneFieldLocator_1(): Locator {
+    public get phoneFieldLocator(): Locator {
 
         return this.getFieldLocator(this.phoneLabelName);
     }
