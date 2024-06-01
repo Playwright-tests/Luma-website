@@ -24,6 +24,7 @@ test.describe('The shipping address form input verification',async () => {
         await addParameters(new Map<string, string>([['Input', email]]));
 
         await inputVerificationStep(async () => {
+            await takeScreenshot('emailAddressField', checkoutPage.shippingAddressForm.emailFieldLocator);
             await checkoutPage.shippingAddressForm.enterEmail(email);
         }, 'Email Address', email);
 

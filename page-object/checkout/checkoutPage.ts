@@ -5,7 +5,7 @@ import { ShippingMethods } from "./shippingMethods";
 
 export class CheckoutPage extends BasePage {
 
-    private readonly nextButton: Locator;
+    private readonly _nextButton: Locator;
     private readonly _paymentGroupSelector: string = 'div.payment-group';
 
     private readonly _shippingAddressForm: ShippingAddressForm;
@@ -18,12 +18,12 @@ export class CheckoutPage extends BasePage {
         this._shippingAddressForm = new ShippingAddressForm(page);
         this._shippingMethods = new ShippingMethods(page);
 
-        this.nextButton = page.getByRole('button', {name: 'Next'});
+        this._nextButton = page.getByRole('button', {name: 'Next'});
     }
 
     public async clickNextButton(): Promise<void> {
         
-        await this.nextButton.click();
+        await this._nextButton.click();
     }
 
     public get shippingAddressForm(): ShippingAddressForm {
@@ -39,5 +39,10 @@ export class CheckoutPage extends BasePage {
     public get paymentGroupSelector(): string {
 
         return this._paymentGroupSelector;
+    }
+
+    public get nextButtonLocator(): Locator {
+
+        return this._nextButton;
     }
 }
