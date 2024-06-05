@@ -9,6 +9,14 @@ export async function addParameters(parameters: Map<string, string>) {
     })
 }
 
+export async function addLoginParameters(email: string, password: string): Promise<void> {
+    
+    await addParameters(new Map<string, string>([
+        ['Email', email],
+        ['Password', password]
+    ]))
+}
+
 export async function addShippingAddressParameters(shippingAddress: ShippingAddress) {
     
     await addParameters(new Map<string, string>([
