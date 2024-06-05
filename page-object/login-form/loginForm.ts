@@ -45,6 +45,16 @@ export class LoginForm extends BasePage {
         return await this.signInButton.click();
     }
 
+    public get emailFieldLocator(): Locator {
+
+        return this.emailField;
+    }
+
+    public get passwordFieldLocator(): Locator {
+
+        return this.passwordField;
+    }
+
     public get alertSelector(): string {
 
         return this._alertSelector;

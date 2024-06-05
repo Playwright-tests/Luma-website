@@ -6,6 +6,7 @@ import { PropertyNames } from "../../enums/enums";
 import { LoginForm } from "../../page-object/login-form/loginForm";
 import { inputVerificationStep } from "../../support/commonSteps";
 import { loginSteps } from "../../support/common-steps/loginSteps";
+import { allure } from "allure-playwright";
 
 const correctCredentials = getCorrectCredentials();
 const incorrectEmail = getIncorrectCredentials(PropertyNames.INCORRECT_EMAIL)[0];
@@ -17,6 +18,9 @@ test.describe('Login',async () => {
 
     test.beforeEach(async () => {
         
+        await allure.owner('Paweł Aksman');
+        await allure.tags('Login', 'Forms', 'Fields');
+
         expectedAlertText = 'The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.'
     })
 
