@@ -1,6 +1,6 @@
 import { LoginForm } from "../../page-object/login-form/loginForm";
 import { allure } from "allure-playwright";
-import { addLoginParameters, addParameters, takeScreenshot } from "../allure";
+import { addLoginParameters, takeScreenshot } from "../allure";
 
 export async function loginSteps(loginForm: LoginForm, email: string, password: string) {
     
