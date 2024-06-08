@@ -43,6 +43,8 @@ test.describe('Login',async () => {
 
     test('The "Email" field input verification',async ({loginForm}) => {
         
+        allure.severity('critical');
+
         const email: string = 'email@domain.com';
 
         await inputVerificationStep(async () => {    
@@ -54,6 +56,8 @@ test.describe('Login',async () => {
 
     test('The "Password" field input verification',async ({loginForm}) => {
         
+        allure.severity('critical');
+
         const password: string = 'We_44#%b';
 
         await inputVerificationStep(async () => {
@@ -65,6 +69,8 @@ test.describe('Login',async () => {
 
     test('Successful login with correct credentials',async ({loginForm}) => {
         
+        allure.severity('critical');
+
         const header = new Header(loginForm.page);
 
         await loginSteps(loginForm, correctCredentials.email, correctCredentials.password);
@@ -73,21 +79,29 @@ test.describe('Login',async () => {
 
     test('Unsuccessful login with incorrect email',async ({loginForm}) => {
         
+        allure.severity('critical');
+
         await incorrectCredentialsActions(loginForm, incorrectEmail.email, correctCredentials.password);
     })
 
     test('Unsuccessful login with incorrect password',async ({loginForm}) => {
         
+        allure.severity('critical');
+
         await incorrectCredentialsActions(loginForm, correctCredentials.email, incorrectPassword.password);
     })
 
     test('Unsuccessful login with blank the "Email" field',async ({loginForm}) => {
         
+        allure.severity('normal');
+
         await blankFieldActions(loginForm, '', correctCredentials.password, loginForm.emailErrorSelector);
     })
 
     test('Unsuccessful login with blank the "Password" field',async ({loginForm}) => {
         
+        allure.severity('normal');
+
         await blankFieldActions(loginForm, correctCredentials.email, '', loginForm.passwordErrorSelector);
     })
 })
