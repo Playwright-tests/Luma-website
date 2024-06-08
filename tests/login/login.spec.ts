@@ -43,7 +43,8 @@ test.describe('Login',async () => {
 
     test('The "Email" field input verification',async ({loginForm}) => {
         
-        allure.severity('critical');
+        await allure.severity('critical');
+        await allure.feature('Filling the "Email" field');
 
         const email: string = 'email@domain.com';
 
@@ -56,7 +57,8 @@ test.describe('Login',async () => {
 
     test('The "Password" field input verification',async ({loginForm}) => {
         
-        allure.severity('critical');
+        await allure.severity('critical');
+        await allure.feature('Filling the "Password" field');
 
         const password: string = 'We_44#%b';
 
@@ -69,7 +71,8 @@ test.describe('Login',async () => {
 
     test('Successful login with correct credentials',async ({loginForm}) => {
         
-        allure.severity('critical');
+        await allure.severity('critical');
+        await allure.feature('Login to an account');
 
         const header = new Header(loginForm.page);
 
@@ -79,28 +82,32 @@ test.describe('Login',async () => {
 
     test('Unsuccessful login with incorrect email',async ({loginForm}) => {
         
-        allure.severity('critical');
+        await allure.severity('critical');
+        await allure.feature('Unsuccessfull login');
 
         await incorrectCredentialsActions(loginForm, incorrectEmail.email, correctCredentials.password);
     })
 
     test('Unsuccessful login with incorrect password',async ({loginForm}) => {
         
-        allure.severity('critical');
+        await allure.severity('critical');
+        await allure.feature('Unsuccessful login');
 
         await incorrectCredentialsActions(loginForm, correctCredentials.email, incorrectPassword.password);
     })
 
     test('Unsuccessful login with blank the "Email" field',async ({loginForm}) => {
         
-        allure.severity('normal');
+        await allure.severity('normal');
+        await allure.feature('Unsuccessful login');
 
         await blankFieldActions(loginForm, '', correctCredentials.password, loginForm.emailErrorSelector);
     })
 
     test('Unsuccessful login with blank the "Password" field',async ({loginForm}) => {
         
-        allure.severity('normal');
+        await allure.severity('normal');
+        await allure.feature('Unsuccessful login');
 
         await blankFieldActions(loginForm, correctCredentials.email, '', loginForm.passwordErrorSelector);
     })
