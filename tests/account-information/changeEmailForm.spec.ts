@@ -16,12 +16,12 @@ test.describe('The "Change Email" form',async () => {
         const email = 'myEmail@domain.com';
 
         await allure.severity('normal');
-        await allure.feature('Filling the "Email" field');
+        await allure.description('Verification of the "Email" field text input');
         await addParameters(new Map<string, string>([['Email', email]]));
 
         await inputVerificationStep(async () => {
-            await takeScreenshot('emailForm', dynamicForm.changeEmailForm.emailFieldLocator);
             await dynamicForm.changeEmailForm.enterEmail(email);
+            await takeScreenshot('emailForm', dynamicForm.changeEmailForm.emailFieldLocator);
         }, "Email", email);
 
         expect(await dynamicForm.changeEmailForm.getEmailFieldInput()).toEqual(email);
@@ -32,12 +32,12 @@ test.describe('The "Change Email" form',async () => {
         const password = '_dsD78%678&hhJk';
 
         await allure.severity('normal');
-        await allure.feature('Filling the "Current Password" field');
+        await allure.description('Verification of the "Current Password" field text input');
         await addParameters(new Map<string, string>([['Password', password]]));
 
         await inputVerificationStep(async () => {
-            await takeScreenshot('currentPasswordField', dynamicForm.changeEmailForm.passwordFieldLocator);
             await dynamicForm.changeEmailForm.enterPassword(password);
+            await takeScreenshot('currentPasswordField', dynamicForm.changeEmailForm.passwordFieldLocator);
         }, "Current Password", password);
 
         expect(await dynamicForm.changeEmailForm.getPasswordFieldInput()).toEqual(password);
