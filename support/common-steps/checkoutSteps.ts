@@ -2,12 +2,14 @@ import { ShippingAddress } from "../../models/models";
 import { CheckoutPage } from "../../page-object/checkout/checkoutPage";
 import { allure } from "allure-playwright";
 import { takeScreenshot } from "../allure";
+import { Locator } from "@playwright/test";
 
-export async function radioButtonSteps(func: any, radioButtonName: string) {
+export async function radioButtonSteps(func: any, radioButtonName: string, locator: Locator) {
     
     await allure.step(`Click the "${radioButtonName}" radio button`,async () => {
         
         await func();
+        await takeScreenshot(`${radioButtonName}`, locator);
     })
 }
 
