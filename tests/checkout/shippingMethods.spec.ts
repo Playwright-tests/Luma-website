@@ -17,10 +17,12 @@ test.describe('Shipping methods radio buttons',async () => {
 
     test('Clicking the "Fixed" radio button',async ({checkoutPage}) => {
         
+        await allure.severity('critical');
+        await allure.description('Clicking the "Fixed" radio button');
+
         await radioButtonSteps(async () => {
-            await takeScreenshot('fixedRadioButton', checkoutPage.shippingMethods.fixedRadioButtonLocator);
             await checkoutPage.shippingMethods.clickFixedRadioButton();
-        }, 'Fixed');
+        }, 'Fixed', checkoutPage.shippingMethods.fixedRadioButtonLocator);
 
         expect(checkoutPage.shippingMethods.fixedRadioButtonLocator).toBeChecked();
         expect(checkoutPage.shippingMethods.tableRateRadioButtonLocator).not.toBeChecked();
@@ -28,10 +30,12 @@ test.describe('Shipping methods radio buttons',async () => {
 
     test('Clicking the "Table Rate" radio button',async ({checkoutPage}) => {
         
+        await allure.severity('critical');
+        await allure.description('Clicking the "Table Rate" radio button');
+
         await radioButtonSteps(async () => {
-            await takeScreenshot('tableRateRadioButton', checkoutPage.shippingMethods.tableRateRadioButtonLocator);
             await checkoutPage.shippingMethods.clickTableRateRadioButton();
-        }, 'Fixed');
+        }, 'Fixed', checkoutPage.shippingMethods.tableRateRadioButtonLocator);
 
         expect(checkoutPage.shippingMethods.fixedRadioButtonLocator).not.toBeChecked();
         expect(checkoutPage.shippingMethods.tableRateRadioButtonLocator).toBeChecked();
