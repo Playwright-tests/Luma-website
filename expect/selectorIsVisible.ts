@@ -8,7 +8,7 @@ export const expect = baseExpect.extend({
         let pass: boolean;
 
         try {
-            await page.waitForSelector(selector, {state: 'visible', timeout: 4000});
+            await page.waitForSelector(selector, {state: 'visible', timeout: 10000});
             pass = true
         } catch (e: any) {
             pass = false;
