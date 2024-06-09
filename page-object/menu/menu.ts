@@ -28,6 +28,11 @@ export class Menu extends BasePage {
         await this.page.getByRole('menuitem', {name: linkName}).hover();
     }
 
+    public getLocator(linkName: string): Locator {
+
+        return this.page.getByRole('menuitem', {name: linkName});
+    }
+
     public get womenListLocator(): Locator {
 
         return this._womenListLocator;
