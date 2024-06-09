@@ -1,11 +1,13 @@
 import { expect, Locator } from "@playwright/test";
 import { Menu } from "../../page-object/menu/menu";
 import { allure } from "allure-playwright";
+import { takeScreenshot } from "../allure";
 
 export async function checkExpandingAndCollapsing_1(menu: Menu, link: string, listLocator: Locator) {
     
     await allure.step(`Hover over the "${link}" element`,async () => {
         
+        await takeScreenshot('element', menu.getLocator(link));
         await menu.hover(link);
     })
 
