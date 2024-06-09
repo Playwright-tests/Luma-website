@@ -19,8 +19,8 @@ test.describe('The account menu',async () => {
         test(`Clicking the "${link.link}" link`,async ({accountMenu}) => {
             
             await allure.severity('critical');
-            await allure.feature(`Opening the ${link.url} page`);
-            await allure.link('Account page', URLs.ACCOUNT_PAGE);
+            await allure.description(`Clicking the ${link.url} page`);
+            await allure.link(URLs.ACCOUNT_PAGE, 'Account page');
             await addParameters(new Map<string, string>([['Link', link.link]]));
 
             await allure.step(`Click the "${link.link}" link`,async () => {
