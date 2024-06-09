@@ -10,7 +10,7 @@ test.describe('Input text verification',async () => {
     test.beforeEach(async () => {
         
         await allure.owner('Paweł Aksman');
-        await allure.tags('Account', 'Forms', 'Fields');
+        await allure.tags('Account', 'Forms', 'Checkbox');
         await allure.link('Account information page', URLs.ACCOUNT_INFORMATION);
     })
 
@@ -19,12 +19,12 @@ test.describe('Input text verification',async () => {
         const firstName = 'Mary';
 
         await allure.severity('normal');
-        await allure.feature('Filling the "First name" field');
+        await allure.description('Verification of the "First Name" field text input');
         await addParameters(new Map<string, string>([['Input', firstName]]));
 
         await inputVerificationStep(async () => {
+            await accountInformation.enterFirstName(firstName);
             await takeScreenshot('firstNameField', accountInformation.firstNameFieldLocator);
-            await accountInformation.enterFirstName(firstName)
         }, 'First Name', firstName);
 
         expect(await accountInformation.getFirstNameFieldInput()).toEqual(firstName);
@@ -35,12 +35,12 @@ test.describe('Input text verification',async () => {
         const lastName = 'Kane';
 
         await allure.severity('normal');
-        await allure.feature('Filling the "Last Name" field');
+        await allure.description('Verification of the "Last Name" field text input');
         await addParameters(new Map<string, string>([['Input', lastName]]));
         
         await inputVerificationStep(async () => {
+            await accountInformation.enterLastName(lastName);
             await takeScreenshot('lastNameField', accountInformation.lastNameFieldLocator);
-            await accountInformation.enterLastName(lastName)
         }, 'First name', lastName);
 
         expect(await accountInformation.getLastNameFieldInput()).toEqual(lastName);
@@ -49,7 +49,7 @@ test.describe('Input text verification',async () => {
     test('Checking the "Change email" checkbox',async ({accountInformation}) => {
         
         await allure.severity('critical');
-        await allure.feature('Displaying the "Change email" form');
+        await allure.description('Clicking the "Change email" checkbox');
 
         await checkboxTestStep(accountInformation, "Change Email");
         await accountInformation.page.waitForSelector(accountInformation.changeEmailForm.mainSelector);
@@ -58,7 +58,7 @@ test.describe('Input text verification',async () => {
     test('Checking the "Change password" checkbox',async ({accountInformation}) => {
         
         await allure.severity('critical');
-        await allure.feature('Displaying the "Change password" form');
+        await allure.description('Clicking the "Change password" checkbox');
 
         await checkboxTestStep(accountInformation, "Change Password");
         await accountInformation.page.waitForSelector(accountInformation.changePasswordForm.mainSelector);
