@@ -18,12 +18,12 @@ test.describe('The "Change Password" form',async () => {
         const currentPassword = 'aa334$$#5_4';
 
         await allure.severity('normal');
-        await allure.feature('Filling the "Current Password" field')
+        await allure.description('Verification of the "Current Password" field text input')
         await addParameters(new Map<string, string>([['Current password', currentPassword]]));
 
         await inputVerificationStep(async () => {
-            await takeScreenshot('currentPasswordField', dynamicForm.changePasswordForm.currentPasswordFieldLocator);
             await dynamicForm.changePasswordForm.enterCurrentPassword(currentPassword);
+            await takeScreenshot('currentPasswordField', dynamicForm.changePasswordForm.currentPasswordFieldLocator);
         }, 'Current password', currentPassword);
 
         expect(await dynamicForm.changePasswordForm.getCurrentPasswordFieldInput()).toEqual(currentPassword);
@@ -34,12 +34,12 @@ test.describe('The "Change Password" form',async () => {
         const newPassword = '&445ssFS8#4';
 
         await allure.severity('normal');
-        await allure.feature('Filling the "New Password" field');
+        await allure.description('Verification of the "New Password" field text input');
         await addParameters(new Map<string, string>([['New password', newPassword]]));
 
         await inputVerificationStep(async () => {
-            await takeScreenshot('newPasswordField', dynamicForm.changePasswordForm.newPasswordFieldLocator);
             await dynamicForm.changePasswordForm.enterNewPassword(newPassword);
+            await takeScreenshot('newPasswordField', dynamicForm.changePasswordForm.newPasswordFieldLocator);
         }, 'New Password', newPassword);
 
         expect(await dynamicForm.changePasswordForm.getNewPasswordFieldInput()).toEqual(newPassword);
