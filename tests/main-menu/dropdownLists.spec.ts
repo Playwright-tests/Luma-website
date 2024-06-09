@@ -1,8 +1,9 @@
 import { expect, test } from "../../fixtures/menu"; 
 import { DropdownListTestdataProviders, SublistTestdataProviders } from "../../testdata-providers/linkTestdataProviders";
-import { ListCategory, MenuItem, SublistCategory } from "../../enums/enums";
+import { ListCategory, MenuItem, SublistCategory, URLs } from "../../enums/enums";
 import { dropdownListSteps, sublistSteps } from "../../support/common-steps/mainMenuSteps";
 import { checkExpandingAndCollapsing_1 } from "../../support/common-steps/mainMenuStepsAndAssertions";
+import { allure } from "allure-playwright";
 
 const dropdownLists = DropdownListTestdataProviders.get();
 const womenSublists = SublistTestdataProviders.get(SublistCategory.WOMEN);
@@ -10,8 +11,18 @@ const menSublists = SublistTestdataProviders.get(SublistCategory.MEN);
 
 test.describe('"Women" dropdown lists',async () => {
     
+    test.beforeEach(async () => {
+        
+        await allure.owner('Paweł Aksman');
+        await allure.tags('Dropdown list', 'Links', 'Expanding', 'Collapsing');
+        await allure.link(URLs.HOME_PAGE, 'Home page');
+    })
+
     test('Expanding and collapsing the "Women" dropdown list',async ({menu}) => {
         
+        await allure.severity('critical')
+        await allure.description('Expanding and collapsing the "Women" dropdown list');
+
         await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.WOMEN].triggerElement, menu.womenListLocator);
     })
 
@@ -19,6 +30,9 @@ test.describe('"Women" dropdown lists',async () => {
 
         test(`Clicking the "${link.link}" link of the "Women" dropdown list`,async ({menu}) => {
             
+            await allure.severity('critical');
+            await allure.description(`Clicking the "${link.link}" link of the "Women" dropdown list`);
+
             await dropdownListSteps(menu, dropdownLists[ListCategory.WOMEN].triggerElement, link.link);
             await expect(menu.page).toHaveURL(link.url);
         })
@@ -28,6 +42,9 @@ test.describe('"Women" dropdown lists',async () => {
 
         test(`Clicking the "${link.link}" of the "${womenSublists[MenuItem.TOPS].triggerElement_2}" trigger element on the "Women" dropdown list`,async ({menu}) => {
             
+            await allure.severity('critical');
+            await allure.description(`Clicking the "${link.link}" of the "${womenSublists[MenuItem.TOPS].triggerElement_2}" trigger element on the "Women" dropdown list`);
+
             await sublistSteps(menu, womenSublists[MenuItem.TOPS].triggerElement_1, womenSublists[MenuItem.TOPS].triggerElement_2, link.link);
             await expect(menu.page).toHaveURL(link.url);
         })
@@ -37,6 +54,9 @@ test.describe('"Women" dropdown lists',async () => {
 
         test(`Clicking the "${link.link}" of the "${womenSublists[MenuItem.BOTTOMS].triggerElement_2}" trigger element on the "Women" dropdown list`,async ({menu}) => {
             
+            await allure.severity('critical');
+            await allure.description(`Clicking the "${link.link}" of the "${womenSublists[MenuItem.BOTTOMS].triggerElement_2}" trigger element on the "Women" dropdown list`);
+
             await sublistSteps(menu, womenSublists[MenuItem.BOTTOMS].triggerElement_1, womenSublists[MenuItem.BOTTOMS].triggerElement_2, link.link);
             await expect(menu.page).toHaveURL(link.url);
         })
@@ -45,8 +65,18 @@ test.describe('"Women" dropdown lists',async () => {
 
 test.describe('"Men" dropdown list',async () => {
     
+    test.beforeEach(async () => {
+        
+        await allure.owner('Paweł Aksman');
+        await allure.tags('Dropdown list', 'Links', 'Expanding', 'Collapsing');
+        await allure.link(URLs.HOME_PAGE, 'Home page');
+    })
+
     test('Expanding and collapsing the "Men" dropdown list',async ({menu}) => {
         
+        await allure.severity('critical');
+        await allure.description('Expanding and collapsing the "Men" dropdown list');
+
         await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.MEN].triggerElement, menu.menListLocator);
     })
 
@@ -54,6 +84,9 @@ test.describe('"Men" dropdown list',async () => {
 
         test(`Clicking the "${link.link}" link of the "Men" dropdown list`,async ({menu}) => {
             
+            await allure.severity('critical');
+            await allure.description(`Clicking the "${link.link}" link of the "Men" dropdown list`);
+
             await dropdownListSteps(menu, dropdownLists[ListCategory.MEN].triggerElement, link.link);
             await expect(menu.page).toHaveURL(link.url);
         })
@@ -63,6 +96,9 @@ test.describe('"Men" dropdown list',async () => {
 
         test(`Clicking the "${link.link}" of the "${menSublists[MenuItem.TOPS].triggerElement_2}" trigger element on the "Men" dropdown list`,async ({menu}) => {
             
+            await allure.severity('critical');
+            await allure.description(`Clicking the "${link}" of the "${menSublists[MenuItem.TOPS].triggerElement_2}" trigger element on the "Men" dropdown list`);
+
             await sublistSteps(menu, menSublists[MenuItem.TOPS].triggerElement_1, menSublists[MenuItem.TOPS].triggerElement_2, link.link);
             await expect(menu.page).toHaveURL(link.url);
         })
@@ -72,6 +108,9 @@ test.describe('"Men" dropdown list',async () => {
 
         test(`Clicking the "${link.link}" of the "${menSublists[MenuItem.BOTTOMS].triggerElement_2}" trigger element on the "Men" dropdown list`,async ({menu}) => {
             
+            await allure.severity('critical');
+            await allure.description(`Clicking the "${link.link}" of the "${menSublists[MenuItem.BOTTOMS].triggerElement_2}" trigger element on the "Men" dropdown list`);
+
             await sublistSteps(menu, menSublists[MenuItem.BOTTOMS].triggerElement_1, menSublists[MenuItem.BOTTOMS].triggerElement_2, link.link);
             await expect(menu.page).toHaveURL(link.url);
         })
@@ -80,8 +119,18 @@ test.describe('"Men" dropdown list',async () => {
 
 test.describe('"Gear" dropdown list',async () => {
     
+    test.beforeEach(async () => {
+        
+        await allure.owner('Paweł Aksman');
+        await allure.tags('Dropdown list', 'Links', 'Expanding', 'Collapsing');
+        await allure.link(URLs.HOME_PAGE, 'Home page');
+    })
+
     test('Expanding and collapsing the "Gear" dropdown list',async ({menu}) => {
         
+        await allure.severity('critical');
+        await allure.description('Expanding and collapsing the "Gear" dropdown list');
+
         await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.GEAR].triggerElement, menu.gearListLocator);
     })
 
@@ -89,6 +138,9 @@ test.describe('"Gear" dropdown list',async () => {
 
         test(`Clicking the "${link.link}" link of the "Gear" dropdown list`,async ({menu}) => {
             
+            await allure.severity('critical');
+            await allure.description(`Clicking the "${link.link}" link of the "Gear" dropdown list`);
+
             await dropdownListSteps(menu, dropdownLists[ListCategory.GEAR].triggerElement, link.link);
             await expect(menu.page).toHaveURL(link.url);
         })
@@ -97,8 +149,18 @@ test.describe('"Gear" dropdown list',async () => {
 
 test.describe('"Training" dropdown list',async () => {
     
+    test.beforeEach(async () => {
+        
+        await allure.owner('Paweł Aksman');
+        await allure.tags('Dropdown list', 'Links', 'Expanding', 'Collapsing');
+        await allure.link(URLs.HOME_PAGE, 'Home page');
+    })
+
     test('Expanding and collapsing the "Training" dropdown list',async ({menu}) => {
         
+        await allure.severity('critical');
+        await allure.description('Expanding and collapsing the "Training" dropdown list');
+
         await checkExpandingAndCollapsing_1(menu, dropdownLists[ListCategory.TRAINING].triggerElement, menu.trainingListLocator);
     })
 
@@ -106,6 +168,9 @@ test.describe('"Training" dropdown list',async () => {
 
         test(`Clicking the "${link.link}" link of the "Training" dropdown list`,async ({menu}) => {
             
+            await allure.severity('critical');
+            await allure.description(`Clicking the "${link.link}" link of the "Training" dropdown list`);
+
             await dropdownListSteps(menu, dropdownLists[ListCategory.TRAINING].triggerElement, link.link);
             await expect(menu.page).toHaveURL(link.url);
         })
